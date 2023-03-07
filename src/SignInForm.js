@@ -14,7 +14,7 @@ function SignInForm(props) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    fetch('http://localhost:3000/api/v1/user', {
+    fetch('http://localhost:3000/api/v1/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,15 +44,15 @@ function SignInForm(props) {
       <h1>Sign Up</h1>
       <form className="ui form" onSubmit={handleSubmit}>
         <div className="field">
-          <label>Username</label>
+          <label>Username: </label>
           <input value={username} onChange={handleUsernameChange} type="text" placeholder="username" />
         </div>
         <div className="field">
-          <label>Password</label>
+          <label>Password: </label>
           <input value={password} onChange={handlePasswordChange} type="password" placeholder="password" />
         </div>
 
-        <button className="ui button" type="submit">Submit</button>
+        <button className="ui button" type="submit">Register</button>
       </form>
     </div>
   );

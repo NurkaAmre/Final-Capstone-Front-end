@@ -8,7 +8,6 @@ const headerStyle = {
 function Header(props) {
   return (
     <div style={headerStyle}>
-      <h1 style={{ color: 'white' }}>JWT Auth Setup</h1>
       <button type="button" className="ui button" onClick={() => props.handleFormSwitch('signUp')}>Sign Up</button>
       <button type="button" className="ui button" onClick={() => props.handleFormSwitch('login')}>Log In</button>
     </div>

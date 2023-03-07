@@ -14,7 +14,7 @@ function LoginForm(props) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    fetch('http://localhost:3000/api/v1/user', {
+    fetch('http://localhost:3000/api/v1/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,12 +44,12 @@ function LoginForm(props) {
         <h1>Log In</h1>
         <form className="ui form" onSubmit={handleSubmit}>
           <div className="field">
-            <label>Username</label>
-            <input value={username} onChange={handleUsernameChange} type="text" placeholder="username" />
+            <label htmlFor="username">Username: </label>
+            <input id="username" value={username} onChange={handleUsernameChange} type="text" placeholder="username" />
           </div>
           <div className="field">
-            <label>Password</label>
-            <input value={password} onChange={handlePasswordChange} type="password" placeholder="password" />
+            <label htmlFor="password">Password: </label>
+            <input id="password" value={password} onChange={handlePasswordChange} type="password" placeholder="password" />
           </div>
 
           <button className="ui button" type="submit">Submit</button>
