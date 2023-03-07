@@ -43,15 +43,18 @@ function App() {
       },
     })
       .then((resp) => resp.json())
+      // eslint-disable-next-line no-console
       .then((data) => console.log(data));
   };
 
+  // eslint-disable-next-line no-console
   console.log(user);
 
   const renderForm = () => {
     switch (form) {
       case 'login':
         return <LoginForm handleLogin={handleLogin} />;
+        // eslint-disable-next-line no-unreachable
         break;
       default:
         return <SignInForm handleLogin={handleLogin} />;
@@ -72,7 +75,7 @@ function App() {
         {
           renderForm()
         }
-        <button onClick={handleAuthClick} className="ui button">Access Authorized Route</button>
+        <button onClick={handleAuthClick} className="ui button" type="button">Access Authorized Route</button>
       </div>
     </div>
 

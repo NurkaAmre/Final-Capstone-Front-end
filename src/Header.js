@@ -6,10 +6,11 @@ const headerStyle = {
   // lineHeight: "15vh"
 };
 function Header(props) {
+  const { handleFormSwitch } = props || { handleFormSwitch: () => {} };
   return (
     <div style={headerStyle}>
-      <button type="button" className="ui button" onClick={() => props.handleFormSwitch('signUp')}>Sign Up</button>
-      <button type="button" className="ui button" onClick={() => props.handleFormSwitch('login')}>Log In</button>
+      <button type="button" className="ui button" onClick={() => handleFormSwitch('signUp')}>Sign Up</button>
+      <button type="button" className="ui button" onClick={() => handleFormSwitch('login')}>Log In</button>
     </div>
   );
 }

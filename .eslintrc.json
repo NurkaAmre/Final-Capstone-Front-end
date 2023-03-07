@@ -18,7 +18,8 @@
       "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
       "react/react-in-jsx-scope": "off",
       "import/no-unresolved": "off",
-      "no-shadow": "off"
+      "no-shadow": "off",
+      "jsx-a11y/label-has-associated-control": "off"
     },
     "ignorePatterns": [
       "dist/",

@@ -13,6 +13,7 @@ function SignInForm(props) {
   };
 
   const handleSubmit = (evt) => {
+    const { handleLogin } = props || { handleLogin: () => {} };
     evt.preventDefault();
     fetch('http://localhost:3000/api/v1/users', {
       method: 'POST',
@@ -28,7 +29,7 @@ function SignInForm(props) {
       .then((resp) => resp.json())
       .then((data) => {
         localStorage.setItem('token', data.jwt);
-        props.handleLogin(data.user);
+        handleLogin(data.user);
       });
     setUsername('');
     setPassword('');
