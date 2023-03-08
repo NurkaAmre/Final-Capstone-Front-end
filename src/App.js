@@ -1,84 +1,15 @@
-import { BrowserRouter as Router } from 'react-router-dom';
+import { useState } from "react";
 import './App.css';
-import { useState, useEffect } from 'react';
-import Header from './Header';
-import SignInForm from './SignInForm';
-import LoginForm from './LoginForm';
+import User from './components/User';
 
-import Nav from './component/nav';
+const App = () => {
 
-function App() {
-  const [user, setUser] = useState({});
-  const [form, setForm] = useState('');
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      fetch('http://localhost:3000/auto_login', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((resp) => resp.json())
-        .then((data) => {
-          setUser(data);
-        // console.log(data)
-        });
-    }
-  }, []);
-
-  const handleLogin = (user) => {
-    setUser(user);
-  };
-
-  const handleFormSwitch = (input) => {
-    setForm(input);
-  };
-
-  const handleAuthClick = () => {
-    const token = localStorage.getItem('token');
-    fetch('http://localhost:3000/user_is_authed', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((resp) => resp.json())
-      // eslint-disable-next-line no-console
-      .then((data) => console.log(data));
-  };
-
-  // eslint-disable-next-line no-console
-  console.log(user);
-
-  const renderForm = () => {
-    switch (form) {
-      case 'login':
-        return <LoginForm handleLogin={handleLogin} />;
-        // eslint-disable-next-line no-unreachable
-        break;
-      default:
-        return <SignInForm handleLogin={handleLogin} />;
-    }
-  };
+  const [ currUser, setCurrUser ] = useState(null);
 
   return (
-    <div>
-      <div>
-        <h1> Head component</h1>
-        <Router>
-          <Nav />
-        </Router>
-      </div>
-
-      <div className="App">
-        <Header handleFormSwitch={handleFormSwitch} />
-        {
-          renderForm()
-        }
-        <button onClick={handleAuthClick} className="ui button" type="button">Access Authorized Route</button>
-      </div>
+    <div className="App">
+      <User currUser={currUser} setCurrUser={setCurrUser} />
     </div>
-
   );
 }
 
