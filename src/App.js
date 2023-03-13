@@ -6,6 +6,7 @@ import { userSession } from './redux/user/session-redux';
 import Login from './component/user-sessions/login';
 import Signup from './component/user-sessions/signup';
 import Nav from './component/nav';
+import BookListing from './component/BookListings';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const App = () => {
     <BrowserRouter>
       <Nav />
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<BookListing />} />
         <Route path="/user/login" element={<Login />} />
         <Route path="/user/signup" element={<Signup />} />
       </Routes>
