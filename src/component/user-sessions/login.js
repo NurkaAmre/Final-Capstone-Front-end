@@ -1,63 +1,62 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { signUpUser } from '../../redux/users/usersSlice';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../redux/user/session-redux';
 import { baseURL } from '../../helpers/api';
-import './SignUp.css';
+import './login.css';
 
-const SignUpForm = () => {
-  const dispatch = useDispatch();
+const Login = () => {
   const [username, setUsername] = useState('');
+  const dispatch = useDispatch();
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleChangeUsername = (event) => {
+    setUsername(event.target.value);
   };
 
-  const createUserAPI = async (username) => fetch(`${baseURL}/users`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ name: username }),
-  }).then((response) => {
-    if (response.status === 200) {
-      return response.json();
+  const isUserLogged = () => {
+    const user = JSON.parse(localStorage.getItem('user')) || null;
+    if (user !== null) {
+      window.location.href = '/';
     }
-    return false;
-  });
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    createUserAPI(username).then((userdata) => {
-      if (userdata !== false) {
-        dispatch(signUpUser({ data: userdata, isLogged: true }));
-        localStorage.setItem('user', JSON.stringify(userdata));
+  useEffect(isUserLogged, []);
+
+  const isUserExistInApi = async (username) => fetch(`${baseURL}/users/${username}`)
+    .then((res) => {
+      if (res.status === 200) {
+        return res.json();
+      }
+      return false;
+    });
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    isUserExistInApi(username).then((data) => {
+      if (data === false) {
+        window.location.href = '/signup';
+      } else {
+        localStorage.setItem('user', JSON.stringify(data));
+        dispatch(loginUser({ data: username, isLogged: true }));
         window.location.href = '/';
       }
     });
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">
-          Username
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={handleUsernameChange}
-          />
-        </label>
-        <button type="submit" className="submit-btn">
-          Sign up
-        </button>
-        <br />
-        <span><i>Already have an account?</i></span>
-        <Link to="/signin"> Log in here</Link>
-      </form>
-    </>
+    <form onSubmit={handleSubmit}>
+      <h1>Log in</h1>
+      <label htmlFor="username">
+        <p>Name:</p>
+        <input type="text" id="username" value={username} onChange={handleChangeUsername} />
+      </label>
+      <br />
+      <button type="submit" className="submit-btn">Login</button>
+      <br />
+      <span><i>Don&apos;t have an account?</i></span>
+      <Link to="/signup">Sign up here</Link>
+    </form>
   );
 };
 
-export default SignUpForm;
+export default Login;

@@ -1,162 +1,45 @@
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { logout } from '../redux/user/session-redux';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import isUserSigned from '../helpers/auth';
 
-const Nav = () => {
-  const dispatch = useDispatch();
-
+const Navigation = () => {
   const navigate = useNavigate();
-
-  const [showMenu, setShowMenu] = useState(false);
-
-  const isLoggedIn = JSON.parse(window.localStorage.getItem('logged_in'));
-
-  useEffect(() => {
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) {
-        setShowMenu(true);
-      } else {
-        setShowMenu(false);
-      }
-      const body = document.querySelector('body');
-      body.classList.remove('no-scroll');
-    });
-  }, []);
-
-  const toggleMenu = () => {
-    if (window.innerWidth < 768) {
-      setShowMenu(!showMenu);
-      const body = document.querySelector('body');
-      body.classList.toggle('no-scroll');
-    }
-  };
-
-  const keyInput = (e) => {
-    if (e.code === 'Enter') {
-      toggleMenu();
-    }
-  };
-
-  const clearUserData = () => {
-    localStorage.clear();
-    dispatch(logout());
-    toggleMenu();
-    navigate('/');
+  const signOut = () => {
+    localStorage.removeItem('user');
+    navigate('/signin');
   };
 
   return (
-    <header>
-      <i
-        className={
-          !showMenu
-            ? 'menuButton fa-solid fa-bars '
-            : 'menuButton fa-solid fa-xmark'
-        }
-        onClick={toggleMenu}
-        onKeyDown={keyInput}
-        tabIndex="0"
-        aria-label="burger menu button"
-        role="button"
-      />
+    <div className="sidebar">
+      <div className="sidebar-header">
+        <h1>Pics</h1>
+      </div>
+      <div className="sidebar-content">
+        <Link to="/"><li>Books</li></Link>
+        <Link to="/reservations/new"><li>Reserve Books</li></Link>
+        <Link to="/reservations"><li>My Books</li></Link>
+        <Link to="/new-car"><li>Add Books</li></Link>
+        <Link to="/delete-car"><li>Delete Books</li></Link>
+      </div>
+      {isUserSigned() && (
+        <div className="signout-buttn"><button type="button" onClick={signOut}>Sign out</button></div>
+      )}
+      {/* <div className="social-icons">
 
-      <nav className={!showMenu ? 'display-none' : ''}>
-        <NavLink to="/" className="logo" onClick={toggleMenu}>
-          Book Selection
-        </NavLink>
+        <FaTwitter />
 
-        {isLoggedIn ? (
-          <ul className="menuLinks">
-            <li>
-              <NavLink to="/" onClick={toggleMenu}>
-                Books
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/reserve" onClick={toggleMenu}>
-                Reserve
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/reservations" onClick={toggleMenu}>
-                My reservations
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/add_book" onClick={toggleMenu}>
-                Add book
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/delete_book" onClick={toggleMenu}>
-                Delete book
-              </NavLink>
-            </li>
-          </ul>
-        ) : (
+        <FaFacebook />
 
-          <NavLink
-            to="/user/login"
-            onClick={toggleMenu}
-          >
-            <button className="login-button" type="button">
-              Log in
-            </button>
-          </NavLink>
-        )}
+        <FaGoogle />
 
-        <div className="logout-sm">
-          {isLoggedIn && (
-            <button
-              className="logout-btn"
-              type="button"
-              onClick={clearUserData}
-            >
-              Logout
-            </button>
-          )}
+        <FaInstagram />
 
-          <ul className="socialLinks">
-            <li>
-              <a
-                href="https://facebook.com"
-                onClick={toggleMenu}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="facebook page"
-              >
-                <i className="fa-brands fa-facebook-f" />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://twitter.com"
-                onClick={toggleMenu}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="twitter page"
-              >
-                <i className="fa-brands fa-twitter" />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://instagram.com"
-                onClick={toggleMenu}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="instagram page"
-              >
-                <i className="fa-brands fa-instagram" />
-              </a>
-            </li>
-          </ul>
-        </div>
+        <RiPinterestFill />
 
-        <div className="navRights">All rights reserved</div>
-      </nav>
-    </header>
+      </div> */}
+      <span id="copyright"><i>&copy; Joseph, Tanusri & Nurka</i></span>
+    </div>
   );
 };
 
-export default Nav;
+export default Navigation;
