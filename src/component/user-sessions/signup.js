@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';'react-router-dom';
 import { signUpUser } from '../../redux/user/session-redux';
 import { baseURL } from '../../helpers/api';
 import './signup.css';
@@ -8,6 +9,7 @@ import './signup.css';
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
+  const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -18,7 +20,7 @@ const SignUpForm = () => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ name: username }),
+    body: JSON.stringify({ user_name: username }),
   }).then((response) => {
     if (response.status === 200) {
       return response.json();
@@ -32,7 +34,7 @@ const SignUpForm = () => {
       if (userdata !== false) {
         dispatch(signUpUser({ data: userdata, isLogged: true }));
         localStorage.setItem('user', JSON.stringify(userdata));
-        window.location.href = '/';
+        navigate('/');
       }
     });
   };

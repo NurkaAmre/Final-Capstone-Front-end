@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import isUserSigned from '../helpers/auth';
+import isUserSigned from '../../helpers/auth';
+import './nav.css';
 
 const Navigation = () => {
   const navigate = useNavigate();

@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';'react-router-dom';
 import { loginUser } from '../../redux/user/session-redux';
 import { baseURL } from '../../helpers/api';
 import './login.css';
 
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChangeUsername = (event) => {
     setUsername(event.target.value);
@@ -34,11 +37,12 @@ const Login = () => {
     event.preventDefault();
     isUserExistInApi(username).then((data) => {
       if (data === false) {
-        window.location.href = '/signup';
+        navigate('/');
+        console.log('hi');
       } else {
         localStorage.setItem('user', JSON.stringify(data));
         dispatch(loginUser({ data: username, isLogged: true }));
-        window.location.href = '/';
+        navigate('/');
       }
     });
   };
