@@ -6,8 +6,6 @@ import { loginUser } from '../../redux/user/session-redux';
 import { baseURL } from '../../helpers/api';
 import './login.css';
 
-'react-router-dom';
-
 const Login = () => {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
