@@ -28,30 +28,31 @@ const userReducer = (state = initialState, action) => {
     case LOGOUT:
       return initialState;
 
-    // case ADD_RESERVATION:
-    //   if (action.payload.newReservation) {
-    //     return {
-    //       ...state,
-    //       reservations: [...state.reservations, action.payload.newReservation],
-    //       creationMsg: action.payload.msg,
-    //     };
-    // //   }
-    //   return {
-    //     ...state,
-    //     creationMsg: action.payload.msg,
-    //   };
+      // case ADD_RESERVATION:
+      //   if (action.payload.newReservation) {
+      //     return {
+      //       ...state,
+      //       reservations: [...state.reservations, action.payload.newReservation],
+      //       creationMsg: action.payload.msg,
+      //     };
+      // //   }
+      //   return {
+      //     ...state,
+      //     creationMsg: action.payload.msg,
+      //   };
 
-    // case REMOVE_RESERVATIONS:
-    //   return {
-    //     ...state,
-    //     reservations: [...state.reservations.filter((item) => item.book_id !== action.payload)],
-    //   };
+      // case REMOVE_RESERVATIONS:
+      //   return {
+      //     ...state,
+      //     reservations: [...state.reservations.filter((item) =>
+      // item.book_id !== action.payload)],
+      //   };
 
-    // case REMOVE_MSG:
-    //   return {
-    //     ...state,
-    //     creationMsg: action.payload,
-    //   };
+      // case REMOVE_MSG:
+      //   return {
+      //     ...state,
+      //     creationMsg: action.payload,
+      //   };
 
     default:
       return state;
@@ -107,7 +108,7 @@ const userSession = (obj, endpoint) => async (dispatch) => fetch(`http://127.0.0
 //     .then((res) => {
 //       const result = {
 //         msg: res.message,
-       
+
 //       };
 //       dispatch(setReservationAction(result));
 //     });
@@ -115,5 +116,5 @@ const userSession = (obj, endpoint) => async (dispatch) => fetch(`http://127.0.0
 
 export default userReducer;
 export {
-  fullfiled, userSession, logout
+  fullfiled, userSession, logout,
 };

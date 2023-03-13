@@ -2,19 +2,18 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import Home from './modules/Home';
 import { userSession } from './redux/user/session-redux';
-import Login from './modules/user-sessions/login';
-import Signup from './modules/user-sessions/signup';
-import Nav from './modules/Nav';
+import Login from './component/user-sessions/login';
+import Signup from './component/user-sessions/signup';
+import Nav from './component/nav';
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchBooks());
+    // dispatch(fetchBooks());
     if (localStorage.getItem('user')) {
-      const user_name = localStorage.getItem('user');
-      dispatch(userSession({ user_name }, 'login'));
+      const userName = localStorage.getItem('user');
+      dispatch(userSession({ userName }, 'login'));
     }
   }, [dispatch]);
 
@@ -22,7 +21,7 @@ const App = () => {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/user/login" element={<Login />} />
         <Route path="/user/signup" element={<Signup />} />
       </Routes>
