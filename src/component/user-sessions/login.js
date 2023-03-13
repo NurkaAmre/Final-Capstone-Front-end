@@ -1,103 +1,63 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { userSession } from '../../redux/user/session-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { signUpUser } from '../../redux/users/usersSlice';
+import { baseURL } from '../../helpers/api';
+import './SignUp.css';
 
-const Login = () => {
+const SignUpForm = () => {
   const dispatch = useDispatch();
+  const [username, setUsername] = useState('');
 
-  const redirection = useNavigate();
-
-  const userData = useSelector((state) => state.users);
-
-  const [usernameState, setUsernameState] = useState('');
-  const [existState, setExistState] = useState(false);
-  const [clicked, setClickedState] = useState(false);
-  const [validDisplayState, setValidDisplayState] = useState(false);
-
-  const userDispatch = () => {
-    setClickedState(true);
-    if (usernameState.length === 0) {
-      setValidDisplayState(true);
-      setExistState(false);
-    } else {
-      dispatch(userSession({ user_name: usernameState }, 'login'));
-    }
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
   };
 
-  const setUsername = (e) => {
-    setUsernameState(e.target.value);
-  };
+  const createUserAPI = async (username) => fetch(`${baseURL}/users`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ name: username }),
+  }).then((response) => {
+    if (response.status === 200) {
+      return response.json();
+    }
+    return false;
+  });
 
-  useEffect(() => {
-    if (userData.logged_in === false) {
-      if (clicked) {
-        setExistState(true);
-        setValidDisplayState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createUserAPI(username).then((userdata) => {
+      if (userdata !== false) {
+        dispatch(signUpUser({ data: userdata, isLogged: true }));
+        localStorage.setItem('user', JSON.stringify(userdata));
+        window.location.href = '/';
       }
-    }
-    if (userData.logged_in === true) {
-      setExistState(false);
-      localStorage.setItem('logged_in', true);
-      localStorage.setItem('user', userData.user.user_name);
-    }
-    if (localStorage.getItem('logged_in') === 'true') {
-      const user = localStorage.getItem('user');
-      if (!userData) {
-        dispatch(userSession({ user_name: user }, 'login'));
-      }
-      redirection('/');
-    }
-  }, [userData.message, userData.logged_in, redirection, dispatch, userData, clicked]);
+    });
+  };
 
   return (
-    <section className="user-page flex">
-      <div>
-        <h1>Welcome Back</h1>
-      </div>
-      <form action="" className="user-form flex">
-        <input
-          type="input"
-          name="user_name"
-          placeholder="Username"
-          id="user_name"
-          onChange={setUsername}
-          required
-        />
-        <div
-          className="error"
-          style={{
-            display: existState ? 'inherit' : 'none',
-          }}
-        >
-          <p>{userData ? userData.message : 'Something went wrong'}</p>
-        </div>
-        <div
-          className="error"
-          style={{
-            display: validDisplayState ? 'inherit' : 'none',
-          }}
-        >
-          <p>Username field can not be empty</p>
-        </div>
-        <button
-          type="button"
-          name="login"
-          className="session-btn"
-          onClick={userDispatch}
-        >
-          Log In
+    <>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">
+          Username
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={handleUsernameChange}
+          />
+        </label>
+        <button type="submit" className="submit-btn">
+          Sign up
         </button>
-        <Link to="/user/signup">
-          <p
-            className="session-redirect"
-          >
-            <em>Not a member? Sign up...</em>
-          </p>
-        </Link>
+        <br />
+        <span><i>Already have an account?</i></span>
+        <Link to="/signin"> Log in here</Link>
       </form>
-    </section>
+    </>
   );
 };
 
-export default Login;
+export default SignUpForm;
