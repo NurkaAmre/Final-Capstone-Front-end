@@ -1,82 +1,32 @@
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { useState, useEffect } from 'react';
-import Header from './Header';
-import SignInForm from './SignInForm';
-import LoginForm from './LoginForm';
-
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { userSession } from './redux/user/session-redux';
+import Login from './component/user-sessions/login';
+import Signup from './component/user-sessions/signup';
 import Nav from './component/nav';
 
-function App() {
-  const [user, setUser] = useState({});
-  const [form, setForm] = useState('');
-
+const App = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      fetch('http://localhost:3000/auto_login', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((resp) => resp.json())
-        .then((data) => {
-          setUser(data);
-        // console.log(data)
-        });
+    // dispatch(fetchBooks());
+    if (localStorage.getItem('user')) {
+      const userName = localStorage.getItem('user');
+      dispatch(userSession({ userName }, 'login'));
     }
-  }, []);
-
-  const handleLogin = (user) => {
-    setUser(user);
-  };
-
-  const handleFormSwitch = (input) => {
-    setForm(input);
-  };
-
-  const handleAuthClick = () => {
-    const token = localStorage.getItem('token');
-    fetch('http://localhost:3000/user_is_authed', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((resp) => resp.json())
-      .then((data) => console.log(data));
-  };
-
-  console.log(user);
-
-  const renderForm = () => {
-    switch (form) {
-      case 'login':
-        return <LoginForm handleLogin={handleLogin} />;
-        break;
-      default:
-        return <SignInForm handleLogin={handleLogin} />;
-    }
-  };
+  }, [dispatch]);
 
   return (
-    <div>
-      <div>
-        <h1> Head component</h1>
-        <Router>
-          <Nav />
-        </Router>
-      </div>
-
-      <div className="App">
-        <Header handleFormSwitch={handleFormSwitch} />
-        {
-          renderForm()
-        }
-        <button onClick={handleAuthClick} className="ui button">Access Authorized Route</button>
-      </div>
-    </div>
-
+    <BrowserRouter>
+      <Nav />
+      <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/user/login" element={<Login />} />
+        <Route path="/user/signup" element={<Signup />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
