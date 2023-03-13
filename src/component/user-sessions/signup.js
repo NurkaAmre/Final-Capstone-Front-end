@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 import { signUpUser } from '../../redux/user/session-redux';
 import { baseURL } from '../../helpers/api';
 import './signup.css';
+
+'react-router-dom';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
