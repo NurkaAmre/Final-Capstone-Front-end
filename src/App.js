@@ -1,15 +1,30 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import './App.css';
-import User from './components/User';
+// import User from './components/User';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from 'react-router-dom';
 
-const App = () => {
-  const [currUser, setCurrUser] = useState(null);
+import Header from './container/header';
+import BookDetails from './container/BooksDetails';
+import BookListing from './container/BookListings';
 
+function App() {
   return (
-    <div className="App">
-      <User currUser={currUser} setCurrUser={setCurrUser} />
-    </div>
+    <Router>
+      {/* // const [currUser, setCurrUser] = useState(null); */}
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<BookListing />} />
+          <Route path="/Book/:BookId" element={<BookDetails />} />
+          <Route> 404 not found </Route>
+        </Routes>
+        {/* <User currUser={currUser} setCurrUser={setCurrUser} /> */}
+      </div>
+    </Router>
   );
-};
-
+}
 export default App;
