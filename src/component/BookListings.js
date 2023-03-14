@@ -1,7 +1,7 @@
 /* eslint-disable*/
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBooks } from '../redux/book/bookReducer';
+import { fetchBooks } from '../redux/features/slice';
 import BookComponent from './BookComponent';
 
 const BookListing = () => {
@@ -10,9 +10,9 @@ const BookListing = () => {
   console.log(Books.books);
 
   useEffect(() => {
-    if(Books.books.length === 0){
-      dispatch(getBooks);
-    }
+    // if(Books.books.length === 0){
+      dispatch(fetchBooks());
+    // }
   }, []);
 
   return (

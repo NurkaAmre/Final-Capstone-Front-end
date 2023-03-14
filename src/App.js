@@ -3,21 +3,12 @@ import './App.css';
 import Login from './component/user-sessions/login';
 import Signup from './component/user-sessions/signup';
 import BookListing from './component/BookListings';
-import Nav from './component/navbar/nav';
+import Navigation from './component/navbar/nav';
 
 const App = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    // dispatch(fetchBooks());
-    if (localStorage.getItem('user')) {
-      const userName = localStorage.getItem('user');
-      dispatch(userSession({ userName }, 'login'));
-    }
-  }, [dispatch]);
-
   return (
     <BrowserRouter>
-      <Nav />
+    <Navigation />
       <Routes>
         <Route path="/" element={<BookListing />} />
         <Route path="/login" element={<Login />} />
@@ -26,6 +17,5 @@ const App = () => {
     </BrowserRouter>
   );
 };
-
 
 export default App;
