@@ -1,12 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { userSession } from './redux/user/session-redux';
 import Login from './component/user-sessions/login';
 import Signup from './component/user-sessions/signup';
 import Nav from './component/nav';
 import BookListing from './component/BookListings';
+import Nav from './component/navbar/nav';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -23,8 +21,8 @@ const App = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<BookListing />} />
-        <Route path="/user/login" element={<Login />} />
-        <Route path="/user/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );
