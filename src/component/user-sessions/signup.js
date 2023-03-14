@@ -5,8 +5,6 @@ import { signUpUser } from '../../redux/user/session-redux';
 import { baseURL } from '../../helpers/api';
 import './signup.css';
 
-'react-router-dom';
-
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
@@ -31,7 +29,7 @@ const SignUpForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const username = e.target.username.value
+    const username = e.target.username.value;
     createUserAPI(username).then((userdata) => {
       if (userdata !== false) {
         dispatch(signUpUser({ data: userdata, isLogged: true }));
@@ -42,10 +40,11 @@ const SignUpForm = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">
-          Username
+    <section className="hero-sign-up">
+      <div className="hero-image" />
+      <form onSubmit={handleSubmit} className="hero-form-sign-up">
+        <label htmlFor="username" className="label-username">
+          Enter your name:
           <input
             type="text"
             id="username"
@@ -60,7 +59,7 @@ const SignUpForm = () => {
         <span><i>Already have an account?</i></span>
         <Link to="/signin"> Log in here</Link>
       </form>
-    </>
+    </section>
   );
 };
 
