@@ -19,8 +19,8 @@ const Navigation = () => {
         <Link to="/"><li>Books</li></Link>
         <Link to="/reservations/new"><li>Reserve Books</li></Link>
         <Link to="/reservations"><li>My Books</li></Link>
-        <Link to="/new-car"><li>Add Books</li></Link>
-        <Link to="/delete-car"><li>Delete Books</li></Link>
+        <Link to="/new-book"><li>Add Books</li></Link>
+        <Link to="/delete-book"><li>Delete Books</li></Link>
       </div>
       {isUserSigned() && (
         <div className="signout-buttn"><button type="button" onClick={signOut}>Sign out</button></div>
