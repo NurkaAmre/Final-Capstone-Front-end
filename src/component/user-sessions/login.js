@@ -6,8 +6,6 @@ import { loginUser } from '../../redux/user/session-redux';
 import { baseURL } from '../../helpers/api';
 import './login.css';
 
-'react-router-dom';
-
 const Login = () => {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
@@ -39,7 +37,7 @@ const Login = () => {
     isUserExistInApi(username).then((data) => {
       if (data === false) {
         navigate('/');
-        console.log('hi');
+        // console.log('hi');
       } else {
         localStorage.setItem('user', JSON.stringify(data));
         dispatch(loginUser({ data: username, isLogged: true }));

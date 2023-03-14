@@ -6,8 +6,6 @@ import { signUpUser } from '../../redux/user/session-redux';
 import { baseURL } from '../../helpers/api';
 import './signup.css';
 
-'react-router-dom';
-
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
