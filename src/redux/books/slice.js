@@ -24,21 +24,25 @@ const booksSlice = createSlice({
   initialState,
   reducers: {
     book(state, action) {
-      state.books = action.payload;
+      const newState = state;
+      newState.books = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.pending, (state) => {
-        state.status = 'loading';
+        const newState = state;
+        newState.status = 'loading';
       })
       .addCase(fetchBooks.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.books = action.payload;
+        const newState = state;
+        newState.status = 'succeeded';
+        newState.books = action.payload;
       })
       .addCase(fetchBooks.rejected, (state, action) => {
-        state.status = 'rejected';
-        state.error = action.error.message;
+        const newState = state;
+        newState.status = 'rejected';
+        newState.error = action.error.message;
       });
   },
 });

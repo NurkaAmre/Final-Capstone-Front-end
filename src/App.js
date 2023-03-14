@@ -1,21 +1,19 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Login from './component/user-sessions/login';
+/* import Login from './component/user-sessions/login';
 import Signup from './component/user-sessions/signup';
 import BookListing from './component/BookListings';
-import Navigation from './component/navbar/nav';
+import Navigation from './component/navbar/nav'; */
+import Main from './component/home/Home';
 
-const App = () => {
-  return (
-    <BrowserRouter>
-    <Navigation />
-      <Routes>
-        <Route path="/" element={<BookListing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
-    </BrowserRouter>
-  );
-};
+const App = () => (
+
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Main />} />
+    </Routes>
+  </BrowserRouter>
+
+);
 
 export default App;

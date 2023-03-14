@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getReservationsAPI } from '../helpers/api';
+import { getReservationsAPI } from '../../helpers/api';
 
 export const getReservationsThunk = createAsyncThunk('reservations/fetchAll',
   async (userId) => {
@@ -14,7 +14,8 @@ const reservationsSlice = createSlice({
   initialState: { reservations: null },
   extraReducers: (builder) => {
     builder.addCase(getReservationsThunk.fulfilled, (state, action) => {
-      state.reservations = action.payload;
+      const newState = state;
+      newState.reservations = action.payload;
     });
   },
 });

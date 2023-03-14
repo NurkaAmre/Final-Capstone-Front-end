@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getReservationsThunk } from '../../redux/reservationsSlice';
+import { getReservationsThunk } from '../../redux/reservations/reservationsSlice';
 import locationIcon from '../../img/location_icon.png';
 import calendarIcon from '../../img/calendar_icon.png';
 import { getBooksThunk } from '../../redux/books/booksSlice';
