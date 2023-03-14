@@ -1,102 +1,64 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { userSession } from '../../redux/user/session-redux';
+import { useDispatch } from 'react-redux';
+
+import { loginUser } from '../../redux/user/session-redux';
+import { baseURL } from '../../helpers/api';
+import './login.css';
 
 const Login = () => {
+  const [username, setUsername] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const redirection = useNavigate();
+  const handleChangeUsername = (event) => {
+    setUsername(event.target.value);
+  };
 
-  const userData = useSelector((state) => state.users);
-
-  const [usernameState, setUsernameState] = useState('');
-  const [existState, setExistState] = useState(false);
-  const [clicked, setClickedState] = useState(false);
-  const [validDisplayState, setValidDisplayState] = useState(false);
-
-  const userDispatch = () => {
-    setClickedState(true);
-    if (usernameState.length === 0) {
-      setValidDisplayState(true);
-      setExistState(false);
-    } else {
-      dispatch(userSession({ user_name: usernameState }, 'login'));
+  const isUserLogged = () => {
+    const user = JSON.parse(localStorage.getItem('user')) || null;
+    if (user !== null) {
+      window.location.href = '/';
     }
   };
 
-  const setUsername = (e) => {
-    setUsernameState(e.target.value);
-  };
+  useEffect(isUserLogged, []);
 
-  useEffect(() => {
-    if (userData.logged_in === false) {
-      if (clicked) {
-        setExistState(true);
-        setValidDisplayState(false);
+  const isUserExistInApi = async (username) => fetch(`${baseURL}/users/${username}`)
+    .then((res) => {
+      if (res.status === 200) {
+        return res.json();
       }
-    }
-    if (userData.logged_in === true) {
-      setExistState(false);
-      localStorage.setItem('logged_in', true);
-      localStorage.setItem('user', userData.user.user_name);
-    }
-    if (localStorage.getItem('logged_in') === 'true') {
-      const user = localStorage.getItem('user');
-      if (!userData) {
-        dispatch(userSession({ user_name: user }, 'login'));
+      return false;
+    });
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    isUserExistInApi(username).then((data) => {
+      if (data === false) {
+        navigate('/');
+        console.log('hi');
+      } else {
+        localStorage.setItem('user', JSON.stringify(data));
+        dispatch(loginUser({ data: username, isLogged: true }));
+        navigate('/');
       }
-      redirection('/');
-    }
-  }, [userData.message, userData.logged_in, redirection, dispatch, userData, clicked]);
+    });
+  };
 
   return (
-    <section className="user-page flex">
-      <div>
-        <h1>Welcome Back</h1>
-      </div>
-      <form action="" className="user-form flex">
-        <input
-          type="input"
-          name="user_name"
-          placeholder="Username"
-          id="user_name"
-          onChange={setUsername}
-          required
-        />
-        <div
-          className="error"
-          style={{
-            display: existState ? 'inherit' : 'none',
-          }}
-        >
-          <p>{userData ? userData.message : 'Something went wrong'}</p>
-        </div>
-        <div
-          className="error"
-          style={{
-            display: validDisplayState ? 'inherit' : 'none',
-          }}
-        >
-          <p>Username field can not be empty</p>
-        </div>
-        <button
-          type="button"
-          name="login"
-          className="session-btn"
-          onClick={userDispatch}
-        >
-          Log In
-        </button>
-        <Link to="/user/signup">
-          <p
-            className="session-redirect"
-          >
-            <em>Not a member? Sign up...</em>
-          </p>
-        </Link>
-      </form>
-    </section>
+    <form onSubmit={handleSubmit}>
+      <h1>Log in</h1>
+      <label htmlFor="username">
+        <p>Name:</p>
+        <input type="text" id="username" value={username} onChange={handleChangeUsername} />
+      </label>
+      <br />
+      <button type="submit" className="submit-btn">Login</button>
+      <br />
+      <span><i>Don&apos;t have an account?</i></span>
+      <Link to="/signup">Sign up here</Link>
+    </form>
   );
 };
 
