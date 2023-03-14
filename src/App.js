@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Login from './component/user-sessions/login';
 import Signup from './component/user-sessions/signup';
-import Nav from './component/nav';
 import BookListing from './component/BookListings';
 import Nav from './component/navbar/nav';
 
@@ -27,5 +26,6 @@ const App = () => {
     </BrowserRouter>
   );
 };
+
 
 export default App;
