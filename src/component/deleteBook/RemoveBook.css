@@ -1,0 +1,46 @@
+.deleteBookContainer {
+  background: var(--light);
+  padding: 1rem;
+}
+
+.deleteBookContainer > div {
+  max-width: 900px;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.deleteBookContainer > div > div {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.deleteBookContainer > div div img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.actions {
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.actions h2 {
+  font-size: 0.85rem;
+}
+
+.actions button {
+  padding: 0.2rem 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .deleteBookContainer > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 968px) {
+  .deleteBookContainer > div {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
