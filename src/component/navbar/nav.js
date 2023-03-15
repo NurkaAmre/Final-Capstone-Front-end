@@ -17,7 +17,7 @@ const Navigation = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <h1>Pics</h1>
+        <h1>BookStore</h1>
       </div>
       <div className="sidebar-content">
         <Link to="/"><li>Books</li></Link>

@@ -44,7 +44,7 @@ const Details = () => {
                 />
                 <p className="books-description">{bookDetails.description}</p>
                 <div className="configure">
-                  <button type="button" onClick={navgiateHome}>
+                  <button type="button" onClick={navigateHome}>
                     <BiLeftArrow />
                   </button>
                 </div>
@@ -82,7 +82,7 @@ const Details = () => {
                     {bookDetails.cost}
                   </span>
                 </div>
-                <div className="books-speed">
+                <div className="books-pages">
                   <span>
                     Pages:
                     {' '}

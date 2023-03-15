@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { createReservationAPI } from '../../helpers/api';
 import isUserSigned from '../../helpers/auth';
-import { getBooksThunk } from '../../redux/books/booksSlice';
+import { fetchBooks } from '../../redux/books/slice';
 
 const NewReservationForm = () => {
   // eslint-disable-next-line react/prop-types, no-unused-vars
@@ -14,7 +14,7 @@ const NewReservationForm = () => {
     if (!isUserSigned()) {
       navigate('/signin');
     }
-    dispatch(getBooksThunk());
+    dispatch(fetchBooks());
   }, [dispatch, navigate]);
 
   const { books = null } = useSelector((state) => state.books);
@@ -64,9 +64,8 @@ const NewReservationForm = () => {
             <option key={book.id} value={book.id}>{book.name}</option>
           ))}
         </select>
+        <input type="date" name="date" placeholder="date" value={reservation.date} onChange={handleFieldChange} />
         <input type="text" name="city" placeholder="city" value={reservation.city} onChange={handleFieldChange} />
-        <input type="date" name="dateofbooking" placeholder="Date of Booking" value={reservation.date_of_booking} onChange={handleFieldChange} />
-        <input type="date" name="dateofdelivery" placeholder="Date of Delivery" value={reservation.date_of_delivery} onChange={handleFieldChange} />
         <input className="buttn" type="submit" value="Order Now" onClick={handleSubmit} />
       </form>
       <span className={msg.type}>{ msg.text }</span>
