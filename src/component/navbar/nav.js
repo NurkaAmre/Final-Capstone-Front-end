@@ -2,6 +2,10 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import isUserSigned from '../../helpers/auth';
 import './nav.css';
+import {
+  FaTwitter, FaFacebook, FaInstagram, FaGoogle,
+} from 'react-icons/fa';
+import { RiPinterestFill } from 'react-icons/ri';
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -25,7 +29,7 @@ const Navigation = () => {
       {isUserSigned() && (
         <div className="signout-buttn"><button type="button" onClick={signOut}>Sign out</button></div>
       )}
-      {/* <div className="social-icons">
+      <div className="social-icons">
 
         <FaTwitter />
 
@@ -37,8 +41,8 @@ const Navigation = () => {
 
         <RiPinterestFill />
 
-      </div> */}
-      <span id="copyright"><i>&copy; Joseph, Tanusri & Nurka</i></span>
+      </div>
+      <span id="copyright"><i>&copy; Joseph, Tanusri, Nurka & Ova</i></span>
     </div>
   );
 };
