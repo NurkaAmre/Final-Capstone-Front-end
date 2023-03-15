@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import isUserSigned from '../../helpers/auth';
-import './nav.css';
+import { RiPinterestFill } from 'react-icons/ri';
 import {
   FaTwitter, FaFacebook, FaInstagram, FaGoogle,
 } from 'react-icons/fa';
-import { RiPinterestFill } from 'react-icons/ri';
+import isUserSigned from '../../helpers/auth';
+import './nav.css';
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const Navigation = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <h1>Pics</h1>
+        <h1>BookStore</h1>
       </div>
       <div className="sidebar-content">
         <Link to="/"><li>Books</li></Link>

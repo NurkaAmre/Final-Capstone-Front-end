@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { signUpUser } from '../../redux/user/session-redux';
 import { baseURL } from '../../helpers/api';
-import './signup.css';
+import './SignUp.css';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();

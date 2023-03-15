@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
 import Carousel from 'react-bootstrap/Carousel';
+/* eslint-disable import/no-extraneous-dependencies */
 import { v4 as uuidv4 } from 'uuid';
 import { fetchBooks } from '../../redux/books/slice';
 import './home.css';

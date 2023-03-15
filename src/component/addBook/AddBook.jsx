@@ -25,7 +25,9 @@ const AddBook = () => {
       navigate('/signin');
     }
   }, [navigate]);
+
   const canBeSaved = [name, genre, desc, cost, pages].every(Boolean);
+
   const data = {
     images: {
       [singleColor]: preview,
@@ -84,30 +86,35 @@ const AddBook = () => {
             value={genre}
             onchange={(input) => handleGenreChange(input)}
           />
+
           <Input
             label="Book Description"
             type="text"
             value={desc}
             onchange={(input) => handleDescChange(input)}
           />
+
           <Input
             label="Booking Cost"
             type="text"
             value={cost}
             onchange={(input) => handleCostChange(input)}
           />
+
           <Input
             label="Book pages"
             type="text"
             value={pages}
             onchange={(input) => handlePagesChange(input)}
           />
+
           <Input
             label="Book Color"
             type="text"
             value={singleColor}
             onchange={(input) => handleColorChange(input)}
           />
+          
           <FileUpload
             type="upload"
             file={file}

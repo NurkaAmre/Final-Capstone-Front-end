@@ -24,23 +24,26 @@
 }
 
 .custom-file-upload input {
-    display: none;
+  display: none;
 }
 
 .uploadContainer {
-    align-items: center;
-    display: flex;
-    gap: 1rem;
+  align-items: center;
+  display: flex;
+  gap: 1rem;
 }
 
 .uploadContainer .upload {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .uploadImage {
   width: 200px;
   height: 100px;
   margin-top: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .uploadImage img {
@@ -49,22 +52,21 @@
   border-radius: 8px;
 }
 
-  
 .previewContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 @media only screen and (max-width: 768px) {
-    .uploadContainer {
-        flex-direction: column;
-    }
+  .uploadContainer {
+    flex-direction: column;
+  }
 }
 
 .input {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }

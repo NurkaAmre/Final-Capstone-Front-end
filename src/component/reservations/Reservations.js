@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getReservationsThunk } from '../../redux/reservations/reservationsSlice';
-import locationIcon from '../../img/location_icon.png';
-import calendarIcon from '../../img/calendar_icon.png';
-import { getBooksThunk } from '../../redux/books/booksSlice';
+/* import locationIcon from '../../img/location_icon.png';
+import calendarIcon from '../../img/calendar_icon.png'; */
+import { fetchBooks } from '../../redux/books/slice';
 import isUserSigned from '../../helpers/auth';
 
 const Reservations = () => {
@@ -21,7 +21,7 @@ const Reservations = () => {
       const { id } = JSON.parse(localStorage.getItem('user'));
       userId = id;
     }
-    dispatch((getBooksThunk()));
+    dispatch((fetchBooks()));
     dispatch((getReservationsThunk(userId)));
   }, [dispatch, navigate]);
   const getBook = (bookId) => books.find((book) => book.id === bookId);
@@ -40,16 +40,12 @@ const Reservations = () => {
               </h2>
               <div className="mycard-footer">
                 <div className="myrow">
-                  <img className="myicon" src={locationIcon} alt="City name" />
+                  {/* <img className="myicon" src={locationIcon} alt="City name" /> */}
                   {reservation.city}
                 </div>
                 <div className="myrow">
-                  <img className="myicon" src={calendarIcon} alt="Date of Booking" />
-                  {reservation.date_of_booking}
-                </div>
-                <div className="myrow">
-                  <img className="myicon" src={calendarIcon} alt="Date of Delivery" />
-                  {reservation.date_of_delivery}
+                  {/* <img className="myicon" src={calendarIcon} alt="Date" /> */}
+                  {reservation.date}
                 </div>
               </div>
             </div>

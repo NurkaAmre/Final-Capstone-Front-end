@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import './Login.css';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../redux/user/session-redux';
-import { baseURL } from '../../helpers/api';
-import './login.css';
+import { loginUser } from '../redux/user/session-redux';
+import { baseURL } from '../helpers/api';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleChangeUsername = (event) => {
     setUsername(event.target.value);
@@ -17,7 +16,7 @@ const Login = () => {
   const isUserLogged = () => {
     const user = JSON.parse(localStorage.getItem('user')) || null;
     if (user !== null) {
-      navigate('/');
+      window.location.href = '/';
     }
   };
 
@@ -35,30 +34,28 @@ const Login = () => {
     event.preventDefault();
     isUserExistInApi(username).then((data) => {
       if (data === false) {
-        navigate('/');
+        window.location.href = '/signup';
       } else {
         localStorage.setItem('user', JSON.stringify(data));
         dispatch(loginUser({ data: username, isLogged: true }));
-        navigate('/');
+        window.location.href = '/';
       }
     });
   };
 
   return (
-    <section className="hero">
-      <form onSubmit={handleSubmit} className="hero-form">
-        <h1>Log in</h1>
-        <label htmlFor="username">
-          <input type="text" id="username" placeholder="Enter your name" value={username} onChange={handleChangeUsername} />
-        </label>
-        <br />
-        <button type="submit" className="submit-btn">Login</button>
-        <br />
-        <span><i>Don&apos;t have an account?</i></span>
-        <Link to="/signup">Sign up here</Link>
-      </form>
-      <div className="hero-images" />
-    </section>
+    <form onSubmit={handleSubmit}>
+      <h1>Log in</h1>
+      <label htmlFor="username">
+        <p>Name:</p>
+        <input type="text" id="username" value={username} onChange={handleChangeUsername} />
+      </label>
+      <br />
+      <button type="submit" className="submit-btn">Login</button>
+      <br />
+      <span><i>Don&apos;t have an account?</i></span>
+      <Link to="/signup">Sign up here</Link>
+    </form>
   );
 };
 

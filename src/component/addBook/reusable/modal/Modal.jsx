@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './Modal.css';
+import './Modal.css';
 
 
 import success from '../../../../img/success.png';
@@ -14,8 +14,8 @@ const Modal = ({ message, onClose, type }) => {
   return (
     <>
       <div onClick={onClose} className="backdrop flex flex-column" role="button" tabIndex={0} onKeyDown={handleKeyDown}>close</div>
-      <div className={modalContainer}>
-        <div className={modalMessage}>
+      <div className="modalContainer">
+        <div className="modalMessage">
           {type === 'success' ? (
             <img src={success} alt="success" />
           ) : (
