@@ -41,6 +41,9 @@
   width: 200px;
   height: 100px;
   margin-top: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .uploadImage img {

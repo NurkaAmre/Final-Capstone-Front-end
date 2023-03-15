@@ -5,7 +5,11 @@ const Input = ({
     label, type, value, onChange
 }) => (
     <div className="input">
-        <label htmlFor={label}>{label}</label>
+        <label 
+            htmlFor={label}
+        >
+            {label}
+        </label>
         <input
             type={type}
             onChange={onChange}

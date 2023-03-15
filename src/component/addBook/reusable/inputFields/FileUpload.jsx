@@ -47,3 +47,14 @@ const FileUpload = ({
         </label>
     </div>
 );
+
+FileUpload.propTypes = {
+    preview: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    file: PropTypes.shape({
+        name: PropTypes.string,
+    }).isRequired,
+    type: PropTypes.oneOf(['upload', 'avatar']).isRequired,
+};
+
+export default FileUpload;

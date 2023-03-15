@@ -60,7 +60,7 @@ const RemoveBook = () => {
 
   return (
     <>
-      <div className="deletecarContainer flex flex-column center">
+      <div className="deleteBookContainer flex flex-column center">
         <h2 className="detete-header hero">Delete Book</h2>
         <div className="grid gap">
           {data.map((book) => (
@@ -74,20 +74,22 @@ const RemoveBook = () => {
                 <button
                   type="button"
                   onClick={() => deleteRequestHandler(book.id, book.name)}
-                >
                   Detele
+                >
                 </button>
               </div>
             </div>
           ))}
         </div>
       </div>
+
       {showModal.alert && (
         <Modal
           message={showModal.message}
           type={showModal.type}
           onClose={() => setShowModal({ alert: false })}
         />
+        
       )}
     </>
   );
