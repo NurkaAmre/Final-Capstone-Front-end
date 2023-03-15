@@ -1,51 +1,50 @@
 body {
-    box-sizing: border-box;
-  }
-  
-  .card {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 20px;
-    padding: 10px;
-  }
-  
-  .books-image {
-    width: 50%;
-  }
-  
-  .books-image img {
-    width: 100%;
-  }
-  
-  .book-props {
-    display: flex;
-    flex-direction: column;
-    text-align: justify;
-    font-size: 0.9rem;
-  }
-  
-  .book-props > :nth-child(even) {
-    background-color: lightgray;
-  }
-  
-  .books-name {
-    text-align: right;
-  }
-  
-  .books-description {
-    font-size: 0.8rem;
-    text-align: justify;
-  }
-  
-  .configure {
-    margin-top: 50px;
-    padding: 10px;
-  }
-  
-  .configure button {
-    border-radius: 40px;
-    background-color: #88e62a;
-  }
-  
+  box-sizing: border-box;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.books-image {
+  width: 50%;
+}
+
+.books-image img {
+  width: 100%;
+}
+
+.book-props {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  font-size: 0.9rem;
+}
+
+.book-props > :nth-child(even) {
+  background-color: lightgray;
+}
+
+.books-name {
+  text-align: right;
+}
+
+.books-description {
+  font-size: 0.8rem;
+  text-align: justify;
+}
+
+.configure {
+  margin-top: 50px;
+  padding: 10px;
+}
+
+.configure button {
+  border-radius: 40px;
+  background-color: #88e62a;
+}

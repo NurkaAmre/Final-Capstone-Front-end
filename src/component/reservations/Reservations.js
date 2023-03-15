@@ -21,7 +21,7 @@ const Reservations = () => {
       const { id } = JSON.parse(localStorage.getItem('user'));
       userId = id;
     }
-    dispatch((getBooksThunk()));
+    dispatch((fetchBooks()));
     dispatch((getReservationsThunk(userId)));
   }, [dispatch, navigate]);
   const getBook = (bookId) => books.find((book) => book.id === bookId);
@@ -40,11 +40,11 @@ const Reservations = () => {
               </h2>
               <div className="mycard-footer">
                 <div className="myrow">
-                  <img className="myicon" src={locationIcon} alt="City name" />
+                  {/* <img className="myicon" src={locationIcon} alt="City name" /> */}
                   {reservation.city}
                 </div>
                 <div className="myrow">
-                  <img className="myicon" src={calendarIcon} alt="Date" />
+                  {/* <img className="myicon" src={calendarIcon} alt="Date" /> */}
                   {reservation.date}
                 </div>
               </div>

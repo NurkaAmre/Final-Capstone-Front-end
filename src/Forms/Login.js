@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../redux/users/usersSlice';
+import { loginUser } from '../redux/user/session-redux';
 import { baseURL } from '../helpers/api';
 
 const Login = () => {

@@ -1,102 +1,102 @@
 /* stylelint-disable no-descending-specificity */
 
 body {
-    box-sizing: border-box;
-  }
-  
-  .app-title {
-    margin-top: 50px;
-    text-align: center;
-    font-weight: 900;
-  }
-  
-  .app-msg {
-    font-style: italic;
-    text-align: center;
-  }
-  
-  .books-container {
-    padding: 20px;
-  }
-  
-  .carousel-item .d-flex {
-    gap: 15px;
-  }
-  
-  .d-flex > div {
-    width: 100%;
-  }
-  
-  .carousel-item .d-flex a {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .carousel-control-next,
-  .carousel-control-prev {
-    opacity: 1;
-  }
-  
-  .carousel-control-next-icon,
-  .carousel-control-prev-icon {
-    border: 1px solid #fff;
-    background-color: var(--main-color);
-    width: 70px;
-    position: absolute;
-  }
-  
-  .carousel-control-prev-icon {
-    border-top-right-radius: 45px;
-    border-bottom-right-radius: 45px;
-    left: 0;
-  }
-  
-  .carousel-control-next-icon {
-    border-top-left-radius: 45px;
-    border-bottom-left-radius: 45px;
-    right: 0;
-  }
-  
-  .carousel-inner img {
-    border-radius: 15px;
-    width: 100% !important;
-    max-width: 400px;
-  }
-  
-  .book-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .social-icon {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    gap: 20px;
-    align-items: center;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  .icon {
-    display: flex;
-    width: 35px;
-    height: 35px;
-    padding: 4px;
-    border-radius: 50%;
-    background: none;
-    border: 2px solid #ddd;
-    color: #ddd;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .icon:hover {
-    background-color: #333;
-    color: #fff;
-  }
+  box-sizing: border-box;
+}
+
+.app-title {
+  margin-top: 50px;
+  text-align: center;
+  font-weight: 900;
+}
+
+.app-msg {
+  font-style: italic;
+  text-align: center;
+}
+
+.books-container {
+  padding: 20px;
+}
+
+.carousel-item .d-flex {
+  gap: 15px;
+}
+
+.d-flex > div {
+  width: 100%;
+}
+
+.carousel-item .d-flex a {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  opacity: 1;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  border: 1px solid #fff;
+  background-color: var(--main-color);
+  width: 70px;
+  position: absolute;
+}
+
+.carousel-control-prev-icon {
+  border-top-right-radius: 45px;
+  border-bottom-right-radius: 45px;
+  left: 0;
+}
+
+.carousel-control-next-icon {
+  border-top-left-radius: 45px;
+  border-bottom-left-radius: 45px;
+  right: 0;
+}
+
+.carousel-inner img {
+  border-radius: 15px;
+  width: 100% !important;
+  max-width: 400px;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 20px;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.icon {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  padding: 4px;
+  border-radius: 50%;
+  background: none;
+  border: 2px solid #ddd;
+  color: #ddd;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon:hover {
+  background-color: #333;
+  color: #fff;
+}
