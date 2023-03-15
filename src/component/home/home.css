@@ -15,7 +15,7 @@ body {
     text-align: center;
   }
   
-  .cars-container {
+  .books-container {
     padding: 20px;
   }
   
@@ -64,7 +64,7 @@ body {
     max-width: 400px;
   }
   
-  .car-info {
+  .book-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
