@@ -64,7 +64,7 @@ input:not([type="file"]) {
   font-weight: 600;
 }
 
-#rsrv-page {
+#reservation-page {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -74,27 +74,27 @@ input:not([type="file"]) {
   background-color: var(--main-color);
 }
 
-#rsrv-page h1 {
+#reservation-page h1 {
   margin: 20px 0;
   font-family: var(--main-font);
   color: #fff;
 }
 
-#rsrv-page form input {
+#reservation-page form input {
   border: 1px solid #acacac;
 }
 
-#rsrv-page form input[type="text"],
-#rsrv-page form input[type="number"],
-#rsrv-page form input[type="date"],
-#rsrv-page form select {
+#reservation-page form input[type="text"],
+#reservation-page form input[type="number"],
+#reservation-page form input[type="date"],
+#reservation-page form select {
   min-width: 100px;
   margin: 8px 0;
   padding: 5px 10px;
   border-radius: 15px;
 }
 
-#resevations-page {
+#reservation_page {
   min-height: 100vh;
   padding: 25px 0;
   font-family: var(--main-font);
@@ -102,17 +102,17 @@ input:not([type="file"]) {
   background-color: #efefef;
 }
 
-#resevations-page h1 {
+#reservation_page h1 {
   margin: 45px 0;
   color: #a0a0a0;
 }
 
-#resevations-list {
+#reserved_books {
   display: grid;
   justify-items: center;
 }
 
-div.mycard {
+div.book-card {
   min-height: 100px;
   min-width: 240px;
   margin: 10px 0;
@@ -129,15 +129,15 @@ div.mycard {
   box-shadow: 1px 1px 10px #c0c0c0;
 }
 
-div.mycard h2 {
+div.book-card h2 {
   font-size: 1.2rem;
 }
 
-div.mycard .myicon {
+div.book-card .myicon {
   width: 20px;
 }
 
-div.mycard .mycard-footer {
+div.book-card .book-card-footer {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -146,7 +146,7 @@ div.mycard .mycard-footer {
   left: 25px;
 }
 
-div.mycard .myrow {
+div.book-card .book-row {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -212,7 +212,7 @@ button {
 }
 
 @media only screen and (min-width: 768px) {
-  #resevations-list {
+  #reserved_books {
     grid-template-columns: 50% 50%;
   }
 
@@ -226,7 +226,7 @@ button {
 }
 
 @media only screen and (min-width: 1024px) {
-  #resevations-list {
+  #reserved_books {
     grid-template-columns: 33% 33% 33%;
   }
 
@@ -234,7 +234,7 @@ button {
     grid-template-columns: 20% 80%;
   }
 
-  div.mycard {
+  div.book-card {
     min-width: 300px;
   }
 }

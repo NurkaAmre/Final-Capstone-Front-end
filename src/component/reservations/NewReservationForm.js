@@ -57,12 +57,12 @@ const NewReservationForm = () => {
     setReservation({ ...reservation, [name]: value });
   };
   return (
-    <div id="rsrv-page">
+    <div id="reservation-page">
       <h1>BOOK A BOOK FROM OUR LIBRARY</h1>
       <form>
         <select name="book_id" value={bookId} onChange={handleFieldChange}>
-          {books &&
-            books.map((book) => (
+          {books
+            && books.map((book) => (
               <option key={book.id} value={book.id}>
                 {book.title}
               </option>
