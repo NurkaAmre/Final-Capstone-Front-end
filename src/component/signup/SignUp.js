@@ -8,18 +8,24 @@ import './SignUp.css';
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+
   const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
 
-  const createUserAPI = async (username) => fetch(`${baseURL}/users`, {
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const createUserAPI = async (username, email) => fetch(`${baseURL}/users`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ user_name: username }),
+    body: JSON.stringify({ user_name: username, email: email }),
   }).then((response) => {
     if (response.status === 200) {
       return response.json();
@@ -30,7 +36,8 @@ const SignUpForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const username = e.target.username.value;
-    createUserAPI(username).then((userdata) => {
+    const email = e.target.email.value;
+    createUserAPI(username, email).then((userdata) => {
       if (userdata !== false) {
         dispatch(signUpUser({ data: userdata, isLogged: true }));
         localStorage.setItem('user', JSON.stringify(userdata));
@@ -52,6 +59,17 @@ const SignUpForm = () => {
             onChange={handleUsernameChange}
           />
         </label>
+        <br />
+        <label htmlFor="email" className="label-username">
+          Enter your email:
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+          />
+        </label>
+        <br />
         <button type="submit" className="submit-btn">
           Sign up
         </button>
