@@ -35,75 +35,79 @@ const Details = () => {
   return (
     <section>
       {bookDetails && (
-      <div key={bookDetails.id} className="card">
-        <div className="books-image">
-          <img
-            src={bookDetails.book_cover_images[Object.keys(bookDetails.book_cover_images)[0]]}
-            alt={bookDetails.title}
-          />
-          <p className="books-genre">{bookDetails.genre}</p>
-          <div className="configure">
-            <button type="button" onClick={navigateHome}>
-              <BiLeftArrow />
-            </button>
+        <div key={bookDetails.id} className="card">
+          <div className="books-image">
+            {bookDetails.book_cover_images && (
+              <img
+                src={
+                  bookDetails.book_cover_images[
+                    Object.keys(bookDetails.book_cover_images)[0]
+                  ]
+                }
+                alt={bookDetails.title}
+              />
+            )}
+            <p className="books-genre">{bookDetails.genre}</p>
+            <div className="configure">
+              <button type="button" onClick={navigateHome}>
+                <BiLeftArrow />
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="book-props">
-          <div className="books-name">
-            <h3>{bookDetails.title}</h3>
-            <span>
-              <i>
-                $-
+          <div className="book-props">
+            <div className="books-name">
+              <h3>{bookDetails.title}</h3>
+              <span>
+                <i>
+                  $-
+                  {bookDetails.price}
+                  {' '}
+                  upon reservations!
+                </i>
+              </span>
+            </div>
+            <div className="books-genre">
+              <span>
+                Genre:
+                {bookDetails.genre}
+              </span>
+            </div>
+            <div className="books-type">
+              <span>
+                Language:
+                {bookDetails.language}
+              </span>
+            </div>
+            <div className="books-cost">
+              <span>
+                Price:
                 {bookDetails.price}
-                {' '}
-                upon reservations!
-              </i>
-            </span>
+              </span>
+            </div>
+            <div className="books-pages">
+              <span>
+                Pages:
+                {bookDetails.pages}
+              </span>
+            </div>
+            <div className="books-color">
+              <span>
+                Isbn:
+                {bookDetails.isbn}
+              </span>
+            </div>
+            <Link
+              to={`/reservations/new/${bookDetails.id}`}
+              className="configure"
+            >
+              <button type="button">
+                <AiOutlineSetting />
+                <span>Reserve</span>
+                <TfiArrowCircleRight />
+              </button>
+            </Link>
           </div>
-          <div className="books-genre">
-            <span>
-              Genre:
-              {' '}
-              {bookDetails.genre}
-            </span>
-          </div>
-          <div className="books-type">
-            <span>
-              Language:
-              {' '}
-              {bookDetails.language}
-            </span>
-          </div>
-          <div className="books-cost">
-            <span>
-              Price:
-              {' '}
-              {bookDetails.price}
-            </span>
-          </div>
-          <div className="books-pages">
-            <span>
-              Pages:
-              {' '}
-              {bookDetails.pages}
-            </span>
-          </div>
-          <div className="books-color">
-            <span>
-              Isbn:
-              {' '}
-              {bookDetails.isbn}
-            </span>
-          </div>
-          <Link to={`/reservations/new/${bookDetails.id}`} className="configure">
-            <button type="button">
-              <AiOutlineSetting />
-              <span>Reserve</span>
-              <TfiArrowCircleRight />
-            </button>
-          </Link>
         </div>
-      </div>
       )}
     </section>
   );
