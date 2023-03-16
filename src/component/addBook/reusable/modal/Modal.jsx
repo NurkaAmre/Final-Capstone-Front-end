@@ -2,9 +2,6 @@
 import PropTypes from 'prop-types';
 import './Modal.css';
 
-import success from '../../../../img/success.jpg';
-import error from '../../../../img/error.jpg';
-
 const Modal = ({ message, onClose, type }) => {
   const handleKeyDown = (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
@@ -17,9 +14,9 @@ const Modal = ({ message, onClose, type }) => {
       <div className="modalContainer">
         <div className="modalMessage">
           {type === 'success' ? (
-            <img src={success} alt="success" />
+            <p>Success</p>
           ) : (
-            <img src={error} alt="error" />
+            <p> Error</p>
           )}
           <p>{message}</p>
         </div>

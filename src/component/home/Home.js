@@ -68,9 +68,13 @@ const Main = () => {
                       </Link>
                       <div className="book-info">
                         <h4>{book.title}</h4>
-                        <span>{book.author}</span>
+                        <span>
+                          {' '}
+                          By:
+                          {book.author}
+                        </span>
                       </div>
-                      <div className="social-icon">
+                      <div className="link-us">
                         <div className="icon">
                           <FaTwitter />
                         </div>

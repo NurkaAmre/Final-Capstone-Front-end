@@ -43,7 +43,7 @@ const RemoveBook = () => {
         if (response.ok) {
           setShowModal({
             alert: true,
-            message: `Yaaaay! You successfully deleted ${bookName}`,
+            message: `Heck!! ${bookName} Is sucessfuly deleted`,
             type: 'success',
           });
           setRefresh(!refresh);
