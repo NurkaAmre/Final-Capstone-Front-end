@@ -51,7 +51,7 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Coin Counter <a name="about-project"></a>
+# 📖 Book Store <a name="about-project"></a>
 
 Our Booking app sends you to the real world of Books.[Hello Rails Back End App](https://github.com/NurkaAmre/Final-Capstone-Back-End).
 
