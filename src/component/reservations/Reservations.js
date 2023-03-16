@@ -45,7 +45,11 @@ const Reservations = () => {
                 </div>
                 <div className="myrow">
                   {/* <img className="myicon" src={calendarIcon} alt="Date" /> */}
-                  {reservation.date}
+                  {reservation.date_of_booking}
+                </div>
+                <div className="myrow">
+                  {/* <img className="myicon" src={calendarIcon} alt="Date" /> */}
+                  {reservation.date_of_delivery}
                 </div>
               </div>
             </div>

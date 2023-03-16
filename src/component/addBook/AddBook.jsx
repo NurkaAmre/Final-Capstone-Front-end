@@ -9,13 +9,15 @@ import Input from './resusable/inputFields/Input';
 import isUserSigned from '../../helpers/auth';
 
 const AddBook = () => {
-  const [name, handleNameChange] = InputChange('');
-  const [type, handleTypeChange] = InputChange('');
+  const [title, handleTitleChange] = InputChange('');
+  const [author, handleAuthorChange] = InputChange('');
   const [genre, handleGenreChange] = InputChange('');
-  const [desc, handleDescChange] = InputChange('');
-  const [singleColor, handleColorChange] = InputChange('');
-  const [cost, handleCostChange] = InputChange('');
+  const [isbn, handleIsbnChange] = InputChange('');
+  const [publisher, handlePublisherChange] = InputChange('');
+  const [price, handlePriceChange] = InputChange('');
   const [pages, handlePagesChange] = InputChange('');
+  const [language, handleLanguageChange] = InputChange('');
+  const [date, handleDateChange] = InputChange('');
   const { file, preview, handleFileChange } = UseFileUpload();
 
   const navigate = useNavigate();
@@ -26,19 +28,21 @@ const AddBook = () => {
     }
   }, [navigate]);
 
-  const canBeSaved = [name, genre, desc, cost, pages].every(Boolean);
+  const canBeSaved = [title, author, genre, isbn, publisher, price, pages, language].every(Boolean);
 
   const data = {
-    images: {
-      [singleColor]: preview,
+    book_cover_images: {
+      [date]: preview,
     },
-    color: [singleColor],
-    name,
-    book_type: type,
+    date_of_publication: [date],
+    title,
+    author,
     genre,
-    description: desc,
-    cost: parseFloat(cost),
+    isbn,
+    publisher,
+    price: parseInt(price, 10),
     pages: parseInt(pages, 10),
+    language,
   };
 
   const handleSubmit = async (e) => {
@@ -67,17 +71,17 @@ const AddBook = () => {
         </span>
         <form onSubmit={handleSubmit} className="flex flex-column">
           <Input
-            label="Book Name"
+            label="Book Title"
             type="text"
-            value={name}
-            onchange={(input) => handleNameChange(input)}
+            value={title}
+            onchange={(input) => handleTitleChange(input)}
           />
 
           <Input
-            label="Book Type"
+            label="Book Author"
             type="text"
-            value={type}
-            onchange={(input) => handleTypeChange(input)}
+            value={author}
+            onchange={(input) => handleAuthorChange(input)}
           />
 
           <Input
@@ -88,17 +92,17 @@ const AddBook = () => {
           />
 
           <Input
-            label="Book Description"
+            label="Book Isbn"
             type="text"
-            value={desc}
-            onchange={(input) => handleDescChange(input)}
+            value={isbn}
+            onchange={(input) => handleIsbnChange(input)}
           />
 
           <Input
-            label="Booking Cost"
+            label="Book Price"
             type="text"
-            value={cost}
-            onchange={(input) => handleCostChange(input)}
+            value={price}
+            onchange={(input) => handlePriceChange(input)}
           />
 
           <Input
@@ -109,10 +113,24 @@ const AddBook = () => {
           />
 
           <Input
-            label="Book Color"
+            label="Book Publisher"
             type="text"
-            value={singleColor}
-            onchange={(input) => handleColorChange(input)}
+            value={publisher}
+            onchange={(input) => handlePublisherChange(input)}
+          />
+
+          <Input
+            label="Book Language"
+            type="text"
+            value={language}
+            onchange={(input) => handleLanguageChange(input)}
+          />
+
+          <Input
+            label="Book Date_of_publication"
+            type="date"
+            value={date}
+            onchange={(input) => handleDateChange(input)}
           />
           
           <FileUpload

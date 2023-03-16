@@ -57,14 +57,15 @@ const NewReservationForm = () => {
   };
   return (
     <div id="rsrv-page">
-      <h1>BOOK ONE OF OUR BOOKS FOR A TEST DRIVE</h1>
+      <h1>BOOK A BOOK FROM OUR LIBRARY</h1>
       <form>
         <select name="book_id" value={bookId} onChange={handleFieldChange}>
           {books && books.map((book) => (
-            <option key={book.id} value={book.id}>{book.name}</option>
+            <option key={book.id} value={book.id}>{book.title}</option>
           ))}
         </select>
-        <input type="date" name="date" placeholder="date" value={reservation.date} onChange={handleFieldChange} />
+        <input type="date" name="date" placeholder="date" value={reservation.date_of_booking} onChange={handleFieldChange} />
+        <input type="date" name="date" placeholder="date" value={reservation.date_of_delivery} onChange={handleFieldChange} />
         <input type="text" name="city" placeholder="city" value={reservation.city} onChange={handleFieldChange} />
         <input className="buttn" type="submit" value="Order Now" onClick={handleSubmit} />
       </form>

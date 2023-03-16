@@ -65,15 +65,15 @@ const RemoveBook = () => {
         <div className="grid gap">
           {data.map((book) => (
             <div key={book.id}>
-              {book.images && <img src={book.images[Object.keys(book.images)[0]]} alt="book" />}
+              {book.book_cover_images && <img src={book.book_cover_images[Object.keys(book.book_cover_images)[0]]} alt="book" />}
               <div className="actions flex">
                 <h2>
-                  {book.name}
-                  {book.make}
+                  {book.title}
+                  {book.author}
                 </h2>
                 <button
                   type="button"
-                  onClick={() => deleteRequestHandler(book.id, book.name)}
+                  onClick={() => deleteRequestHandler(book.id, book.title)}
                   Detele
                 >
                 </button>

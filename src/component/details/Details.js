@@ -38,10 +38,10 @@ const Details = () => {
       <div key={bookDetails.id} className="card">
         <div className="books-image">
           <img
-            src={bookDetails.images[Object.keys(bookDetails.images)[0]]}
-            alt={bookDetails.name}
+            src={bookDetails.book_cover_images[Object.keys(bookDetails.book_cover_images)[0]]}
+            alt={bookDetails.title}
           />
-          <p className="books-description">{bookDetails.description}</p>
+          <p className="books-genre">{bookDetails.genre}</p>
           <div className="configure">
             <button type="button" onClick={navigateHome}>
               <BiLeftArrow />
@@ -50,11 +50,11 @@ const Details = () => {
         </div>
         <div className="book-props">
           <div className="books-name">
-            <h3>{bookDetails.name}</h3>
+            <h3>{bookDetails.title}</h3>
             <span>
               <i>
                 $-
-                {bookDetails.cost}
+                {bookDetails.price}
                 {' '}
                 upon reservations!
               </i>
@@ -69,16 +69,16 @@ const Details = () => {
           </div>
           <div className="books-type">
             <span>
-              Type:
+              Language:
               {' '}
-              {bookDetails.book_type}
+              {bookDetails.language}
             </span>
           </div>
           <div className="books-cost">
             <span>
-              Cost:
+              Price:
               {' '}
-              {bookDetails.cost}
+              {bookDetails.price}
             </span>
           </div>
           <div className="books-pages">
@@ -90,9 +90,9 @@ const Details = () => {
           </div>
           <div className="books-color">
             <span>
-              Color:
+              Isbn:
               {' '}
-              {bookDetails.color}
+              {bookDetails.isbn}
             </span>
           </div>
           <Link to={`/reservations/new/${bookDetails.id}`} className="configure">
