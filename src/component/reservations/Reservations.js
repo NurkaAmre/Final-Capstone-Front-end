@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { getReservationsThunk } from '../../redux/reservations/reservationsSlice';
 /* import locationIcon from '../../img/location_icon.png';
 import calendarIcon from '../../img/calendar_icon.png'; */
-import { fetchBooks } from '../../redux/books/slice';
+import { getBooksThunk } from '../../redux/books/slice';
 import isUserSigned from '../../helpers/auth';
 
 const Reservations = () => {
@@ -21,7 +21,7 @@ const Reservations = () => {
       const { id } = JSON.parse(localStorage.getItem('user'));
       userId = id;
     }
-    dispatch((fetchBooks()));
+    dispatch((getBooksThunk()));
     dispatch((getReservationsThunk(userId)));
   }, [dispatch, navigate]);
   const getBook = (bookId) => books.find((book) => book.id === bookId);

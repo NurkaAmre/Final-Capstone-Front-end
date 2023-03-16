@@ -34,7 +34,7 @@ const AddBook = () => {
     book_cover_images: {
       [date]: preview,
     },
-    date_of_publication: [date],
+    date_of_publication: date,
     title,
     author,
     genre,
@@ -74,65 +74,65 @@ const AddBook = () => {
             label="Book Title"
             type="text"
             value={title}
-            onchange={(input) => handleTitleChange(input)}
+            onChange={(input) => handleTitleChange(input)}
           />
 
           <Input
             label="Book Author"
             type="text"
             value={author}
-            onchange={(input) => handleAuthorChange(input)}
+            onChange={(input) => handleAuthorChange(input)}
           />
 
           <Input
             label="Book genre"
             type="text"
             value={genre}
-            onchange={(input) => handleGenreChange(input)}
+            onChange={(input) => handleGenreChange(input)}
           />
 
           <Input
             label="Book Isbn"
             type="text"
             value={isbn}
-            onchange={(input) => handleIsbnChange(input)}
+            onChange={(input) => handleIsbnChange(input)}
           />
 
           <Input
             label="Book Price"
             type="text"
             value={price}
-            onchange={(input) => handlePriceChange(input)}
+            onChange={(input) => handlePriceChange(input)}
           />
 
           <Input
             label="Book pages"
             type="text"
             value={pages}
-            onchange={(input) => handlePagesChange(input)}
+            onChange={(input) => handlePagesChange(input)}
           />
 
           <Input
             label="Book Publisher"
             type="text"
             value={publisher}
-            onchange={(input) => handlePublisherChange(input)}
+            onChange={(input) => handlePublisherChange(input)}
           />
 
           <Input
             label="Book Language"
             type="text"
             value={language}
-            onchange={(input) => handleLanguageChange(input)}
+            onChange={(input) => handleLanguageChange(input)}
           />
 
           <Input
             label="Book Date_of_publication"
             type="date"
             value={date}
-            onchange={(input) => handleDateChange(input)}
+            onChange={(input) => handleDateChange(input)}
           />
-          
+
           <FileUpload
             type="upload"
             file={file}

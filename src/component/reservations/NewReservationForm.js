@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { createReservationAPI } from '../../helpers/api';
 import isUserSigned from '../../helpers/auth';
-import { fetchBooks } from '../../redux/books/slice';
+import { getBooksThunk } from '../../redux/books/slice';
 
 const NewReservationForm = () => {
   // eslint-disable-next-line react/prop-types, no-unused-vars
@@ -14,7 +14,7 @@ const NewReservationForm = () => {
     if (!isUserSigned()) {
       navigate('/signin');
     }
-    dispatch(fetchBooks());
+    dispatch(getBooksThunk());
   }, [dispatch, navigate]);
 
   const { books = null } = useSelector((state) => state.books);
@@ -25,7 +25,8 @@ const NewReservationForm = () => {
   // Set initial fields values
   const [reservation, setReservation] = useState({
     book_id: bookId || 0,
-    date: '',
+    date_of_booking: '',
+    date_of_delivery: '',
     city: '',
   });
 
@@ -60,16 +61,42 @@ const NewReservationForm = () => {
       <h1>BOOK A BOOK FROM OUR LIBRARY</h1>
       <form>
         <select name="book_id" value={bookId} onChange={handleFieldChange}>
-          {books && books.map((book) => (
-            <option key={book.id} value={book.id}>{book.title}</option>
-          ))}
+          {books &&
+            books.map((book) => (
+              <option key={book.id} value={book.id}>
+                {book.title}
+              </option>
+            ))}
         </select>
-        <input type="date" name="date" placeholder="date" value={reservation.date_of_booking} onChange={handleFieldChange} />
-        <input type="date" name="date" placeholder="date" value={reservation.date_of_delivery} onChange={handleFieldChange} />
-        <input type="text" name="city" placeholder="city" value={reservation.city} onChange={handleFieldChange} />
-        <input className="buttn" type="submit" value="Order Now" onClick={handleSubmit} />
+        <input
+          type="date"
+          name="date_of_booking"
+          placeholder="date"
+          value={reservation.date_of_booking}
+          onChange={handleFieldChange}
+        />
+        <input
+          type="date"
+          name="date_of_delivery"
+          placeholder="date"
+          value={reservation.date_of_delivery}
+          onChange={handleFieldChange}
+        />
+        <input
+          type="text"
+          name="city"
+          placeholder="city"
+          value={reservation.city}
+          onChange={handleFieldChange}
+        />
+        <input
+          className="buttn"
+          type="submit"
+          value="Order Now"
+          onClick={handleSubmit}
+        />
       </form>
-      <span className={msg.type}>{ msg.text }</span>
+      <span className={msg.type}>{msg.text}</span>
     </div>
   );
 };
