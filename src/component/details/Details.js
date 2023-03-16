@@ -35,7 +35,7 @@ const Details = () => {
   return (
     <section>
       {bookDetails && (
-        <div key={bookDetails.id} className="single-book">
+        <div key={bookDetails.id} className="card">
           <div className="books-image">
             {bookDetails.book_cover_images && (
               <img
@@ -47,55 +47,49 @@ const Details = () => {
                 alt={bookDetails.title}
               />
             )}
-
+            {/* <p className="books-genre">{bookDetails.genre}</p> */}
             <div className="configure">
-              <button type="button" onClick={navigateHome}>
+              <button type="button" className='btn1' onClick={navigateHome}>
                 <BiLeftArrow />
               </button>
             </div>
           </div>
           <div className="book-props">
             <div className="books-name">
-              <h3 className="bookTitle">
-                {' '}
-                Book Title:
-                {bookDetails.title}
-              </h3>
-              <span>
+              <h3>{bookDetails.title}</h3>
+              <span className="text">
                 <i>
                   $-
-                  {bookDetails.price}
-                  {' '}
-                  Enough to reserve
+                  {bookDetails.price} upon reservations!
                 </i>
               </span>
             </div>
             <div className="books-genre">
-              <span>
+              <span className="text">
                 Genre:
                 {bookDetails.genre}
               </span>
             </div>
             <div className="books-type">
-              <span>
+              <span className="text">
                 Language:
                 {bookDetails.language}
               </span>
             </div>
             <div className="books-cost">
-              <span>
+              <span className="text">
                 Price:
                 {bookDetails.price}
               </span>
             </div>
             <div className="books-pages">
-              <span>
+              <span className="text">
                 Pages:
                 {bookDetails.pages}
               </span>
             </div>
             <div className="books-color">
-              <span>
+              <span className="text">
                 Isbn:
                 {bookDetails.isbn}
               </span>
@@ -104,9 +98,9 @@ const Details = () => {
               to={`/reservations/new/${bookDetails.id}`}
               className="configure"
             >
-              <button type="button">
+              <button type="button" className="btn">
                 <AiOutlineSetting />
-                <span>Reserve</span>
+                <span className="reserve">Reserve</span>
                 <TfiArrowCircleRight />
               </button>
             </Link>

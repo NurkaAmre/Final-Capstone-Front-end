@@ -2,50 +2,66 @@ body {
   box-sizing: border-box;
 }
 
-.single-book {
+.card {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 20px;
-  padding: 10px;
+  flex-direction: row; 
 }
 
 .books-image {
-  width: 70%;
+  width: 50%;
 }
 
 .books-image img {
-  width: 100%;
-}
-
-.bookTitle {
-  padding-bottom: 2rem ;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width: 70%;
+  margin-left: 20%;
 }
 
 .book-props {
   display: flex;
   flex-direction: column;
-  text-align: justify;
-  font-size: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  width: 20%;
+  padding-left: 1rem;
+  margin-top: 15%;
+  margin-bottom: 15%;
 }
 
 .book-props > :nth-child(even) {
-  background-color: lightgray;
+  background-color: rgb(235, 229, 229);
+}
+
+.books-name {
+  text-align: right;
+}
+
+.text {
+  padding-top: 1rem;
+  padding: 1rem;
 }
 
 .books-description {
-  font-size: 0.8rem;
+  font-size: 1.5rem;
   text-align: justify;
 }
 
-.configure {
-  margin-top: 50px;
-  padding: 10px;
+.reserve {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 1rem;
 }
 
-.configure button {
-  border-radius: 40px;
+.btn1 {
+  border-radius: 0px 20px 20px 0;
+  padding: 10px 30px;
+  margin-bottom: 5%;
+  padding-left: 0;
+  background-color: #88e62a;
+}
+
+.btn {
+  margin-top: 20%;
+  border-radius: 20px 20px 20px 20px;
+  margin-top: 30%;
   background-color: #88e62a;
 }

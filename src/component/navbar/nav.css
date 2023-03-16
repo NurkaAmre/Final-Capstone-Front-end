@@ -10,6 +10,16 @@
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
 }
 
+.green {
+  background: #88e62a;
+  color: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  padding-top: 30%;
+}
+
 .sidebar-header {
   text-align: center;
   margin-bottom: 50px;
@@ -61,3 +71,16 @@
   font-size: 0.8rem;
   padding: 8px;
 }
+
+.signout-buttn {
+  background-color: #88e62a;
+  /* margin: 20%; */
+  position: absolute;
+  right: 90px;
+  padding: 5px 30px;
+}
+
+.relative {
+  position: relative;
+}
+
