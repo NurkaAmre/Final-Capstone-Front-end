@@ -1,5 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import userReducer from './user/session-redux';
 import booksReducer from './books/slice';
 import reservationsReducer from './reservations/reservationsSlice';
