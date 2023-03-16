@@ -74,8 +74,9 @@ const RemoveBook = () => {
                 <button
                   type="button"
                   onClick={() => deleteRequestHandler(book.id, book.title)}
-                  Detele
+
                 >
+                  Button
                 </button>
               </div>
             </div>
@@ -89,7 +90,7 @@ const RemoveBook = () => {
           type={showModal.type}
           onClose={() => setShowModal({ alert: false })}
         />
-        
+
       )}
     </>
   );
