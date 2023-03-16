@@ -26,28 +26,28 @@ const Reservations = () => {
   }, [dispatch, navigate]);
   const getBook = (bookId) => books.find((book) => book.id === bookId);
   return (
-    <main id="resevations-page">
+    <main id="reservation_page">
       <h1>Your Reservations</h1>
-      <section id="resevations-list">
+      <section id="reserved_books">
         {books && reservations && reservations.map((reservation) => {
           const book = getBook(reservation.book_id);
           return (
-            <div key={reservation.id} className="mycard">
+            <div key={reservation.id} className="book-card">
               <h2>
                 {book.title}
                 {' '}
                 {book.author}
               </h2>
-              <div className="mycard-footer">
-                <div className="myrow">
+              <div className="book-card-footer">
+                <div className="book-row">
                   {/* <img className="myicon" src={locationIcon} alt="City name" /> */}
                   {reservation.city}
                 </div>
-                <div className="myrow">
+                <div className="book-row">
                   {/* <img className="myicon" src={calendarIcon} alt="Date" /> */}
                   {reservation.date_of_booking}
                 </div>
-                <div className="myrow">
+                <div className="book-row">
                   {/* <img className="myicon" src={calendarIcon} alt="Date" /> */}
                   {reservation.date_of_delivery}
                 </div>
