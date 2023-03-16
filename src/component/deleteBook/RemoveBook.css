@@ -33,6 +33,10 @@
   padding: 0.2rem 1rem;
 }
 
+.delete-btn {
+  background: #88e62a;
+}
+
 @media screen and (min-width: 600px) {
   .deleteBookContainer > div {
     grid-template-columns: repeat(2, 1fr);
