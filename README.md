@@ -93,6 +93,10 @@ Our Booking app sends you to the real world of Books.[Hello Rails Back End App](
 
 - [Link to kanban](https://github.com/NurkaAmre/Final-Capstone-Back-End/projects/1)
 
+- [Link holding a picture after setting up kanban](https://github.com/NurkaAmre/Final-Capstone-Back-End/issues/13)
+
+Hello there we are a Team of 4 people wokring on this app.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
