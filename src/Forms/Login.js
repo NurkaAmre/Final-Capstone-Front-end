@@ -7,10 +7,16 @@ import { baseURL } from '../helpers/api';
 
 const Login = () => {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+
   const dispatch = useDispatch();
 
   const handleChangeUsername = (event) => {
     setUsername(event.target.value);
+  };
+
+  const handleChangeEmail = (event) => {
+    setEmail(event.target.value);
   };
 
   const isUserLogged = () => {
@@ -49,6 +55,11 @@ const Login = () => {
       <label htmlFor="username">
         <p>Name:</p>
         <input type="text" id="username" value={username} onChange={handleChangeUsername} />
+      </label>
+      <br />
+      <label htmlFor="Email">
+        <p>Email:</p>
+        <input type="email" id="Email" value={email} onChange={handleChangeEmail} />
       </label>
       <br />
       <button type="submit" className="submit-btn">Login</button>
