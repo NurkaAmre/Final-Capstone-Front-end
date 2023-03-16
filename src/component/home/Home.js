@@ -53,11 +53,11 @@ const Main = () => {
               {bookGroup.map((book) => (
                 <div key={book.id}>
                   <Link to={`/details/${book.id}`}>
-                    <img src={book.images[Object.keys(book.images)[0]]} alt={book.name} style={{ height: '200px', width: '300px' }} />
+                    <img src={book.book_cover_images[Object.keys(book.book_cover_images)[0]]} alt={book.title} style={{ height: '200px', width: '300px' }} />
                   </Link>
                   <div className="book-info">
-                    <h4>{book.name}</h4>
-                    <span>{book.description.split('', 50)}</span>
+                    <h4>{book.title}</h4>
+                    <span>{book.author}</span>
                   </div>
                   <div className="social-icon">
                     <div className="icon">
