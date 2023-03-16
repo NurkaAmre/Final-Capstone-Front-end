@@ -1,51 +1,22 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import types from '../types';
+/* eslint-disable no-param-reassign */
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { baseURL } from '../../helpers/api';
 
-const url = 'http://localhost:3000/api/v1/books';
-
-export const fetchBooks = createAsyncThunk(
-  types.FETCH_BOOKS,
-  async () => {
-    const response = await axios.get(url);
-    return response.data;
-  },
-);
-
-// Initial state
-const initialState = {
-  books: [],
-  error: null,
-  status: 'idle',
-};
+export const getBooksThunk = createAsyncThunk('books/getBooks', async () => {
+  const response = await fetch(`${baseURL}/books`);
+  const data = await response.json();
+  return data;
+});
 
 const booksSlice = createSlice({
   name: 'books',
-  initialState,
-  reducers: {
-    book(state, action) {
-      const newState = state;
-      newState.books = action.payload;
-    },
-  },
+  initialState: { books: null, status: 'idle' },
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchBooks.pending, (state) => {
-        const newState = state;
-        newState.status = 'loading';
-      })
-      .addCase(fetchBooks.fulfilled, (state, action) => {
-        const newState = state;
-        newState.status = 'succeeded';
-        newState.books = action.payload;
-      })
-      .addCase(fetchBooks.rejected, (state, action) => {
-        const newState = state;
-        newState.status = 'rejected';
-        newState.error = action.error.message;
-      });
+    builder.addCase(getBooksThunk.fulfilled, (state, action) => {
+      state.status = 'succeded';
+      state.books = action.payload;
+    });
   },
 });
 
-export const { book } = booksSlice.actions;
 export default booksSlice.reducer;

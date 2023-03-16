@@ -1,24 +1,22 @@
 import { useState } from 'react';
 
-const UserFileUpload = () => {
-    const [file, setFile] = useState(null);
-    const [preview, setPreview] = useState(null);
+const UseFileUpload = () => {
+  const [file, setFile] = useState(null);
+  const [preview, setPreview] = useState(null);
 
-    const onChange = (e) => {
-        setFile(e.target.files[0]);
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
 
-        if (e.target.files[0]) {
-            const reader = new FileReader();
-            
-            reader.readAsDataURL(e.target.files[0]);
-            reader.onloadend = () => {
-                setPreview(reader.result);
-            }
-        } else {
-            setPreview(null);
-        }
-    };
-    return [file, preview, onChange];
+    if (e.target.files[0]) {
+      const reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+    }
+  };
+
+  return { file, preview, handleFileChange };
 };
 
-export default UserFileUpload;
+export default UseFileUpload;

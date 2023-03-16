@@ -5,7 +5,7 @@ import { FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
 import Carousel from 'react-bootstrap/Carousel';
 /* eslint-disable import/no-extraneous-dependencies */
 import { v4 as uuidv4 } from 'uuid';
-import { fetchBooks } from '../../redux/books/slice';
+import { getBooksThunk } from '../../redux/books/slice';
 import './home.css';
 import isUserSigned from '../../helpers/auth';
 
@@ -27,7 +27,7 @@ const Main = () => {
       setcarouselIndex(3);
     }
     if (status === 'idle') {
-      dispatch(fetchBooks());
+      dispatch(getBooksThunk());
     }
   }, [status, dispatch, navigate]);
 

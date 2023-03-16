@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { createReservationAPI } from '../../helpers/api';
 import isUserSigned from '../../helpers/auth';
-import { fetchBooks } from '../../redux/books/slice';
+import { getBooksThunk } from '../../redux/books/slice';
 
 const NewReservationForm = () => {
   // eslint-disable-next-line react/prop-types, no-unused-vars
@@ -14,7 +14,7 @@ const NewReservationForm = () => {
     if (!isUserSigned()) {
       navigate('/signin');
     }
-    dispatch(fetchBooks());
+    dispatch(getBooksThunk());
   }, [dispatch, navigate]);
 
   const { books = null } = useSelector((state) => state.books);
