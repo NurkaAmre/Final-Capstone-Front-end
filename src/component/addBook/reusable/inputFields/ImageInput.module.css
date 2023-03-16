@@ -1,0 +1,59 @@
+.avatar img,
+.avatar span {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.avatar span {
+  background: #ccc;
+  color: white;
+  font-size: 3rem;
+}
+
+.upload {
+  background: rgba(46, 182, 46, 0.356);
+  cursor: pointer;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  gap: 0.5rem;
+  padding: 10px 10px;
+}
+
+.upload input {
+  display: none;
+}
+
+.uploadImgContainer {
+  align-items: center;
+}
+
+.uploadImgContainer .upload {
+  margin-top: 1.5rem;
+}
+
+.uploadImage {
+  width: 200px;
+  height: 100px;
+  margin-top: 0.6rem;
+}
+
+.uploadImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.uploadImage svg {
+  font-size: 2rem;
+  color: #ccc;
+}
+
+@media only screen and (max-width: 768px) {
+  .uploadImgContainer {
+    flex-direction: column;
+  }
+}

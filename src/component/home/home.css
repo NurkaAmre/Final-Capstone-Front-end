@@ -23,6 +23,12 @@ body {
   gap: 15px;
 }
 
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  text-align: end;
+}
+
 .d-flex > div {
   width: 100%;
 }
@@ -71,7 +77,13 @@ body {
   align-items: center;
 }
 
-.social-icon {
+.book-info h4 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-decoration: underline;
+  font-size: 2rem;
+}
+
+.link-us {
   display: flex;
   justify-content: center;
   margin-top: 10px;

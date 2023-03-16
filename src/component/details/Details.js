@@ -35,7 +35,7 @@ const Details = () => {
   return (
     <section>
       {bookDetails && (
-        <div key={bookDetails.id} className="card">
+        <div key={bookDetails.id} className="single-book">
           <div className="books-image">
             {bookDetails.book_cover_images && (
               <img
@@ -47,7 +47,7 @@ const Details = () => {
                 alt={bookDetails.title}
               />
             )}
-            <p className="books-genre">{bookDetails.genre}</p>
+
             <div className="configure">
               <button type="button" onClick={navigateHome}>
                 <BiLeftArrow />
@@ -56,13 +56,17 @@ const Details = () => {
           </div>
           <div className="book-props">
             <div className="books-name">
-              <h3>{bookDetails.title}</h3>
+              <h3 className="bookTitle">
+                {' '}
+                Book Title:
+                {bookDetails.title}
+              </h3>
               <span>
                 <i>
                   $-
                   {bookDetails.price}
                   {' '}
-                  upon reservations!
+                  Enough to reserve
                 </i>
               </span>
             </div>
