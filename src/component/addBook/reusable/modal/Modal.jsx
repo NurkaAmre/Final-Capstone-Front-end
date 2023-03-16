@@ -1,9 +1,9 @@
+/* eslint-disable-next-line */
 import PropTypes from 'prop-types';
 import './Modal.css';
 
-
-import success from '../../../../img/success.png';
-import error from '../../../../img/error.png';
+import success from '../../../../img/success.jpg';
+import error from '../../../../img/error.jpg';
 
 const Modal = ({ message, onClose, type }) => {
   const handleKeyDown = (event) => {

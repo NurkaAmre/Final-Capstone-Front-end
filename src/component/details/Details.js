@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { AiOutLineSetting } from 'react-icons/ai';
+import { AiOutlineSetting } from 'react-icons/ai';
 import { TfiArrowCircleRight } from 'react-icons/tfi';
 import { BiLeftArrow } from 'react-icons/bi';
 import './Details.css';
@@ -97,7 +97,7 @@ const Details = () => {
           </div>
           <Link to={`/reservations/new/${bookDetails.id}`} className="configure">
             <button type="button">
-              <AiOutLineSetting />
+              <AiOutlineSetting />
               <span>Reserve</span>
               <TfiArrowCircleRight />
             </button>

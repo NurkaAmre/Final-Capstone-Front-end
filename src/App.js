@@ -1,20 +1,18 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import Main from './component/home/Home';
 import Login from './Forms/Login';
 import SignUpForm from './component/signup/SignUp';
 import Details from './component/details/Details';
 import NewReservationForm from './component/reservations/NewReservationForm';
 import Reservations from './component/reservations/Reservations';
-import store from './redux/configureStore';
 import Navigation from './component/navbar/nav';
 import './App.css';
 import AddBook from './component/addBook/AddBook';
 import RemoveBook from './component/deleteBook/RemoveBook';
 
 const App = () => {
-  <Provider store={store}>
+  <>
     <Navigation />
     <Routes>
       <Route path="" element={<Main />} />
@@ -27,7 +25,7 @@ const App = () => {
       <Route path="/reservations/new:bookId" element={<NewReservationForm />} />
       <Route path="/reservations/new" element={<NewReservationForm />} />
     </Routes>
-  </Provider>;
+  </>;
 };
 
 export default App;

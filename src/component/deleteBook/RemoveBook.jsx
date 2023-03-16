@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { baseURL } from '../../helpers/api';
-import Modal from '../addBook/resusable/modal/Modal';
+import Modal from '../addBook/reusable/modal/Modal';
 import isUserSigned from '../../helpers/auth';
 
 import './RemoveBook.css';
