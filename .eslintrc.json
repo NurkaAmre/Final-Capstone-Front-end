@@ -20,7 +20,8 @@
       "import/no-unresolved": "off",
       "no-shadow": "off",
       "jsx-ally/no-noninteractive-element-interactions": "off",
-      "jsx-ally/click-events-have-key-events": "off"
+      "jsx-ally/click-events-have-key-events": "off",
+      "import/no-extraneous-dependencies": "off"
     },
     "ignorePatterns": [
       "dist/",

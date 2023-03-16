@@ -132,7 +132,7 @@ const AddBook = () => {
             value={date}
             onchange={(input) => handleDateChange(input)}
           />
-          
+
           <FileUpload
             type="upload"
             file={file}
