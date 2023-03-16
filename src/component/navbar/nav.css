@@ -74,6 +74,7 @@
 
 .signout-buttn {
   background-color: #88e62a;
+
   /* margin: 20%; */
   position: absolute;
   right: 90px;
@@ -83,4 +84,3 @@
 .relative {
   position: relative;
 }
-

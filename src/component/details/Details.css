@@ -4,7 +4,7 @@ body {
 
 .card {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
 }
 
 .books-image {
@@ -37,7 +37,6 @@ body {
 
 .text {
   padding-top: 1rem;
-  padding: 1rem;
 }
 
 .books-description {
@@ -52,7 +51,7 @@ body {
 }
 
 .btn1 {
-  border-radius: 0px 20px 20px 0;
+  border-radius: 0 20px 20px 0;
   padding: 10px 30px;
   margin-bottom: 5%;
   padding-left: 0;
@@ -60,7 +59,6 @@ body {
 }
 
 .btn {
-  margin-top: 20%;
   border-radius: 20px 20px 20px 20px;
   margin-top: 30%;
   background-color: #88e62a;

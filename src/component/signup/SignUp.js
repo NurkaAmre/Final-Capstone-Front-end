@@ -25,7 +25,7 @@ const SignUpForm = () => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ user_name: username, email: email }),
+    body: JSON.stringify({ user_name: username, email }),
   }).then((response) => {
     if (response.status === 200) {
       return response.json();

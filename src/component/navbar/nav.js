@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { RiPinterestFill } from 'react-icons/ri';
 import {
-  FaTwitter, FaFacebook, FaInstagram, FaGoogle, FaBookOpen
+  FaTwitter, FaFacebook, FaInstagram, FaGoogle,
 } from 'react-icons/fa';
 import isUserSigned from '../../helpers/auth';
 import './nav.css';
@@ -17,14 +17,14 @@ const Navigation = () => {
   return (
     <div className="sidebar">
       {isUserSigned() && (
-        <div className='relative'>
+        <div className="relative">
           <button type="button" className="signout-buttn" onClick={signOut}>
             Sign out
           </button>
         </div>
       )}
       <div className="sidebar-header">
-        <h1 className='green'>BigBam</h1>
+        <h1 className="green">BigBam</h1>
       </div>
       <div className="sidebar-content">
         <Link to="/">

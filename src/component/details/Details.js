@@ -49,7 +49,7 @@ const Details = () => {
             )}
             {/* <p className="books-genre">{bookDetails.genre}</p> */}
             <div className="configure">
-              <button type="button" className='btn1' onClick={navigateHome}>
+              <button type="button" className="btn1" onClick={navigateHome}>
                 <BiLeftArrow />
               </button>
             </div>
@@ -60,7 +60,9 @@ const Details = () => {
               <span className="text">
                 <i>
                   $-
-                  {bookDetails.price} upon reservations!
+                  {bookDetails.price}
+                  {' '}
+                  upon reservations!
                 </i>
               </span>
             </div>
