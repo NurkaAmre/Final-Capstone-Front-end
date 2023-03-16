@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { baseURL } from '../../helpers/api';
-import InputChange from './hooks/InputChange';
-import UseFileUpload from './hooks/useFileUpload';
-import Container from './resusable/container/Container';
-import FileUpload from './resusable/inputFields/FileUpload';
-import Input from './resusable/inputFields/Input';
+import InputChange from './hooks/inputChange';
+import UserFileUpload from './hooks/userFileUpload';
+import Container from './reusable/container/Container';
+import FileUpload from './reusable/inputFields/FileUpload';
+import Input from './reusable/inputFields/input';
 import isUserSigned from '../../helpers/auth';
 
 const AddBook = () => {
@@ -18,7 +18,7 @@ const AddBook = () => {
   const [pages, handlePagesChange] = InputChange('');
   const [language, handleLanguageChange] = InputChange('');
   const [date, handleDateChange] = InputChange('');
-  const { file, preview, handleFileChange } = UseFileUpload();
+  const { file, preview, handleFileChange } = UserFileUpload();
 
   const navigate = useNavigate();
 
