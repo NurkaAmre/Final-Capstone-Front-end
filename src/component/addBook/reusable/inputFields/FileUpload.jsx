@@ -6,7 +6,7 @@ import './FileUpload.css';
 
 const FileUpload = ({ 
     preview,
-    onChange,
+    handleFileChange,
     file,
     type,
 }) => (
@@ -43,14 +43,14 @@ const FileUpload = ({
             Upload photo
             { ' ' }
             <MdOutlineCloudUpload />
-            <input id="file-upload" type="file" onChange={onChange} />
+            <input id="file-upload" type="file" handleFileChange={handleFileChange} />
         </label>
     </div>
 );
 
 FileUpload.propTypes = {
     preview: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
+    handleFileChange: PropTypes.func.isRequired,
     file: PropTypes.shape({
         name: PropTypes.string,
     }).isRequired,

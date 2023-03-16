@@ -4,7 +4,7 @@ const UserFileUpload = () => {
     const [file, setFile] = useState(null);
     const [preview, setPreview] = useState(null);
 
-    const onChange = (e) => {
+    const handleFileChange = (e) => {
         setFile(e.target.files[0]);
 
         if (e.target.files[0]) {
@@ -18,7 +18,7 @@ const UserFileUpload = () => {
             setPreview(null);
         }
     };
-    return [file, preview, onChange];
+    return {file, preview, handleFileChange};
 };
 
 export default UserFileUpload;
