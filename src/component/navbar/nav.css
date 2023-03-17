@@ -18,6 +18,7 @@
   border-radius: 50%;
   font-size: 1.5rem;
   padding-top: 30%;
+  margin-top: 50%;
 }
 
 .sidebar-header {
@@ -74,8 +75,9 @@
 
 .signout-buttn {
   background-color: #88e62a;
-
-  /* margin: 20%; */
+  border: none;
+  border-radius: 0 20px 20px 0;
+  color: #fff;
   position: absolute;
   right: 90px;
   padding: 5px 30px;
@@ -83,4 +85,5 @@
 
 .relative {
   position: relative;
+  padding: 1rem;
 }

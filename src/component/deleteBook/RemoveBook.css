@@ -35,6 +35,9 @@
 
 .delete-btn {
   background: #88e62a;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
 }
 
 @media screen and (min-width: 600px) {

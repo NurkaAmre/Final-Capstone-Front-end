@@ -42,6 +42,21 @@ body {
 .carousel-control-next,
 .carousel-control-prev {
   opacity: 1;
+  background: #b6dd28;
+  border-radius: 15px;
+  position: absolute;
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.carousel-control-next {
+  right: 5%;
+  top: 50%;
+}
+
+.carousel-control-prev {
+  left: 25%;
+  top: 50%;
 }
 
 .carousel-control-next-icon,
@@ -68,6 +83,13 @@ body {
   border-radius: 15px;
   width: 100% !important;
   max-width: 400px;
+}
+
+.carousel-inner img:hover {
+  background-color: rgba(70, 113, 177, 0.633);
+  width: 50%;
+  max-width: 40%;
+  border-radius: 50%;
 }
 
 .book-info {
@@ -111,4 +133,11 @@ a {
 .icon:hover {
   background-color: #333;
   color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  .carousel-control-next,
+  .carousel-control-prev {
+    display: none;
+  }
 }

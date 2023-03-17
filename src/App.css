@@ -99,7 +99,7 @@ input:not([type="file"]) {
   padding: 25px 0;
   font-family: var(--main-font);
   text-align: center;
-  background-color: #efefef;
+  background-color: #96bf01;
 }
 
 #reservation_page h1 {
@@ -176,15 +176,20 @@ div.book-card .book-row {
   align-items: center;
 }
 
-button {
+.addbtn {
   border: none;
   cursor: pointer;
-  background: var(--primary);
+  background: #96bf01;
   border-radius: 30px;
   padding: 0.5rem 1rem;
   color: white;
   font-family: inherit;
   margin-top: 1.5rem;
+}
+
+img {
+  width: 200px;
+  height: 300px;
 }
 
 .margin {
@@ -246,5 +251,15 @@ button {
 
   .gap {
     gap: 10px;
+  }
+
+  img {
+    width: 80%;
+    height: 200px;
+  }
+
+  #reserved_books {
+    margin-left: 5%;
+    margin-right: 10%;
   }
 }

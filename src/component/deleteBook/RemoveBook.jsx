@@ -76,7 +76,7 @@ const RemoveBook = () => {
                   onClick={() => deleteRequestHandler(book.id, book.title)}
                   className="delete-btn"
                 >
-                  Button
+                  Delete
                 </button>
               </div>
             </div>

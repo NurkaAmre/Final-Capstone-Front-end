@@ -140,7 +140,7 @@ const AddBook = () => {
             handleFileChange={(input) => handleFileChange(input)}
           />
 
-          <button type="submit">Add Book</button>
+          <button type="submit" className="addbtn">Add Book</button>
         </form>
       </div>
     </Container>
