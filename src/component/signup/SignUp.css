@@ -4,8 +4,6 @@
   margin: 0 0 0 auto;
   display: flex;
 
-  /* flex-wrap: wrap;
-    overflow: hidden; */
   background-image: url(../../img/lifestyle1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,8 +20,6 @@
   flex-direction: column;
   align-items: center;
   border: 3px solid rgb(55, 60, 60);
-
-  /* background: linear-gradient(#e8e6ea, #dad1d4); */
 }
 
 .label-username {
