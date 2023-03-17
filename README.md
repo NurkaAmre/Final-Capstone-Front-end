@@ -89,7 +89,7 @@ Our Booking app sends you to the real world of Books.[Hello Rails Back End App](
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://nurka.onrender.com)
+- [Live Demo Link]([https://nurka.onrender.com](https://wonderful-jalebi-743935.netlify.app))
 
 - [Link to kanban](https://github.com/NurkaAmre/Final-Capstone-Back-End/projects/1)
 
