@@ -141,14 +141,6 @@ To run the project, execute the following command:
   npm start
 ```
 
-### Run tests
-
-To run tests, run the following command:
-
-```sh
-  rspec spec/
-```
-
 ### Deployment <a name="triangular_flag_on_post-deployment"></a>
 
 You can deploy this project using: [Netlify](https://www.netlify.com/with/react/)
