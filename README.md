@@ -53,7 +53,9 @@ After you're finished please remove all the comments and instructions!
 
 # 📖 Book Store <a name="about-project"></a>
 
-Our Booking app sends you to the real world of Books.[Hello Rails Back End App](https://github.com/NurkaAmre/Final-Capstone-Back-End).
+Our Booking app sends you to the real world of Books. 
+***
+[Hello Rails Back End App](https://github.com/NurkaAmre/FinalCapstone-Back-End).
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -143,7 +145,7 @@ To run the project, execute the following command:
 
 ### Deployment <a name="triangular_flag_on_post-deployment"></a>
 
-You can deploy this project using: [Netlify](https://www.netlify.com/with/react/)
+You can deploy this project using: [Render]([https://dashboard.render.com/])
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
