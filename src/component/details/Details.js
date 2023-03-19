@@ -6,6 +6,7 @@ import { TfiArrowCircleRight } from 'react-icons/tfi';
 import { BiLeftArrow } from 'react-icons/bi';
 import './Details.css';
 import { baseURL } from '../../helpers/api';
+import Nav from '../navbar/nav';
 
 const Details = () => {
   const { id } = useParams();
@@ -33,7 +34,8 @@ const Details = () => {
   };
 
   return (
-    <section>
+    <section className="root">
+      <Nav />
       {bookDetails && (
         <div key={bookDetails.id} className="card">
           <div className="books-image">
@@ -47,7 +49,6 @@ const Details = () => {
                 alt={bookDetails.title}
               />
             )}
-            {/* <p className="books-genre">{bookDetails.genre}</p> */}
             <div className="configure">
               <button type="button" className="btn1" onClick={navigateHome}>
                 <BiLeftArrow />

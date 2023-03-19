@@ -1,3 +1,9 @@
+.delete-root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
 .deleteBookContainer {
   background: var(--light);
   padding: 1rem;

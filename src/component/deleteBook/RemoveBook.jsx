@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { baseURL } from '../../helpers/api';
 import Modal from '../addBook/reusable/modal/Modal';
 import isUserSigned from '../../helpers/auth';
-
+import Nav from '../navbar/nav';
 import './RemoveBook.css';
 
 const RemoveBook = () => {
@@ -59,7 +59,8 @@ const RemoveBook = () => {
   };
 
   return (
-    <>
+    <section className="delete-root">
+      <Nav />
       <div className="deleteBookContainer flex flex-column center">
         <h2 className="detete-header hero">Delete Book</h2>
         <div className="grid gap">
@@ -92,7 +93,7 @@ const RemoveBook = () => {
         />
 
       )}
-    </>
+    </section>
   );
 };
 

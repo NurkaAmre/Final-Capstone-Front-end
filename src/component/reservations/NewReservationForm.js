@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { createReservationAPI } from '../../helpers/api';
 import isUserSigned from '../../helpers/auth';
 import { getBooksThunk } from '../../redux/books/slice';
+import Nav from '../navbar/nav';
 
 const NewReservationForm = () => {
   // eslint-disable-next-line react/prop-types, no-unused-vars
@@ -57,47 +58,66 @@ const NewReservationForm = () => {
     setReservation({ ...reservation, [name]: value });
   };
   return (
-    <div id="reservation-page">
-      <h1>BOOK A BOOK FROM OUR LIBRARY</h1>
-      <form>
-        <select name="book_id" value={bookId} onChange={handleFieldChange}>
-          {books
-            && books.map((book) => (
-              <option key={book.id} value={book.id}>
-                {book.title}
-              </option>
-            ))}
-        </select>
-        <input
-          type="date"
-          name="date_of_booking"
-          placeholder="date"
-          value={reservation.date_of_booking}
-          onChange={handleFieldChange}
-        />
-        <input
-          type="date"
-          name="date_of_delivery"
-          placeholder="date"
-          value={reservation.date_of_delivery}
-          onChange={handleFieldChange}
-        />
-        <input
-          type="text"
-          name="city"
-          placeholder="city"
-          value={reservation.city}
-          onChange={handleFieldChange}
-        />
-        <input
-          className="buttn"
-          type="submit"
-          value="Order Now"
-          onClick={handleSubmit}
-        />
-      </form>
-      <span className={msg.type}>{msg.text}</span>
-    </div>
+    <section className="reserv-root">
+      <Nav />
+      <div id="reservation-page">
+        <h1>BOOK A BOOK FROM OUR LIBRARY</h1>
+        <form className="reserve-form">
+          <label htmlFor="selectbook">
+            Select your book:
+            <select
+              name="book_id"
+              className="select-option"
+              value={bookId}
+              onChange={handleFieldChange}
+            >
+              {books
+                && books.map((book) => (
+                  <option key={book.id} value={book.id}>
+                    {book.title}
+                  </option>
+                ))}
+            </select>
+          </label>
+          <label htmlFor="datebook">
+            Date of Booking:
+            <input
+              type="date"
+              name="date_of_booking"
+              placeholder="date"
+              value={reservation.date_of_booking}
+              onChange={handleFieldChange}
+            />
+          </label>
+          <label htmlFor="datedelivery">
+            Date of delivery:
+            <input
+              type="date"
+              name="date_of_delivery"
+              placeholder="date"
+              value={reservation.date_of_delivery}
+              onChange={handleFieldChange}
+            />
+          </label>
+          <label htmlFor="city">
+            Enter your city:
+            <input
+              type="text"
+              name="city"
+              value={reservation.city}
+              onChange={handleFieldChange}
+            />
+          </label>
+          <input
+            className="buttn"
+            type="submit"
+            value="Order Now"
+            onClick={handleSubmit}
+          />
+        </form>
+        <span className={msg.type}>{msg.text}</span>
+      </div>
+    </section>
   );
 };
 

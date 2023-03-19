@@ -10,7 +10,6 @@ import NewReservationForm from './component/reservations/NewReservationForm';
 import Reservations from './component/reservations/Reservations';
 import reservationReducer from './redux/reservations/reservationsSlice';
 import booksReducer from './redux/books/slice';
-import Navigation from './component/navbar/nav';
 import './App.css';
 import AddBook from './component/addBook/AddBook';
 import RemoveBook from './component/deleteBook/RemoveBook';
@@ -24,7 +23,6 @@ const store = configureStore({
 
 const App = () => (
   <Provider store={store}>
-    <Navigation />
     <Routes>
       <Route path="" element={<Main />} />
       <Route path="/new-book" element={<AddBook />} />
