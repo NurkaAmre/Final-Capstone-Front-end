@@ -8,6 +8,7 @@ import FileUpload from './reusable/inputFields/FileUpload';
 import Input from './reusable/inputFields/input';
 import isUserSigned from '../../helpers/auth';
 import Nav from '../navbar/nav';
+/* eslint-disable jsx-a11y/label-has-associated-control */
 
 const AddBook = () => {
   const [title, handleTitleChange] = InputChange('');
@@ -74,16 +75,17 @@ const AddBook = () => {
             <h1>Add New Book</h1>
           </span>
           <form onSubmit={handleSubmit} className="flex flex-column add-form">
-            <label>
+            <label htmlFor="bookTitle">
               Book title:
               <Input
+                id="bookTitle"
                 type="text"
                 value={title}
                 onChange={(input) => handleTitleChange(input)}
               />
             </label>
 
-            <label >
+            <label>
               Book Author:
               <Input
                 type="text"
