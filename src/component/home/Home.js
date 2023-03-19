@@ -13,7 +13,7 @@ import { getBooksThunk } from '../../redux/books/slice';
 import './home.css';
 import isUserSigned from '../../helpers/auth';
 import Navigation from '../navbar/nav';
-
+import { pageAnimation } from '../animation';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -40,23 +40,37 @@ const Main = () => {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { duration: 2 } },
   };
+
   return (
-    <section className="root">
+    <motion.section
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      className="root"
+    >
       <Navigation />
       <header>
-        <motion.h1 variants={titleAnim} className="app-title">
+        <motion.h1
+          variants={titleAnim}
+          initial="hidden"
+          animate="show"
+          className="app-title"
+        >
           Read with Splat
           <FaCat />
         </motion.h1>
         <p className="app-msg">
           Borrow ebooks, audiobooks, magazines, and more from your local library
           for free!
-          <br /> Libby is the newer library reading app by OverDrive, loved by
+          <br />
+          {' '}
+          Libby is the newer library reading app by OverDrive, loved by
           millions of readers worldwide.
         </p>
         <Carousel className="books-container" interval={null}>
-          {books &&
-            books
+          {books
+            && books
               .reduce((acc, book, index) => {
                 if (index % carouselIndex === 0) {
                   acc.push([]);
@@ -110,7 +124,7 @@ const Main = () => {
               ))}
         </Carousel>
       </header>
-    </section>
+    </motion.section>
   );
 };
 

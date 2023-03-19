@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { AiOutlineSetting } from 'react-icons/ai';
 import { TfiArrowCircleRight } from 'react-icons/tfi';
@@ -14,6 +15,16 @@ const Details = () => {
   const [bookDetails, setBookDetails] = useState([]);
 
   const navigate = useNavigate();
+
+  const containers = {
+    hidden: { x: 50 },
+    show: {
+      x: 0,
+      transition: {
+        duration: 0.75, ease: 'easeOut', staggerChildren: 1, when: 'beforeChildren',
+      },
+    },
+  };
 
   useEffect(() => {
     const fetchBookDetails = async () => {
@@ -55,7 +66,12 @@ const Details = () => {
               </button>
             </div>
           </div>
-          <div className="book-props">
+          <motion.div
+            variants={containers}
+            initial="hidden"
+            animate="show"
+            className="book-props"
+          >
             <div className="books-name">
               <h3>{bookDetails.title}</h3>
               <span className="text">
@@ -107,7 +123,7 @@ const Details = () => {
                 <TfiArrowCircleRight />
               </button>
             </Link>
-          </div>
+          </motion.div>
         </div>
       )}
     </section>

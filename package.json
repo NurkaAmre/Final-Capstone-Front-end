@@ -21,6 +21,7 @@
     "react-router-dom": "^6.8.2",
     "react-scripts": "^5.0.1",
     "redux-thunk": "^2.4.2",
+    "styled-components": "^5.3.9",
     "swiper": "^9.1.1",
     "use-history": "^1.4.1",
     "uuid": "^9.0.0",

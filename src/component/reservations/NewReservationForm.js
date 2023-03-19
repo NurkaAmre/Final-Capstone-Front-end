@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
+import { slider, sliderContainer } from '../animation';
 import { createReservationAPI } from '../../helpers/api';
 import isUserSigned from '../../helpers/auth';
 import { getBooksThunk } from '../../redux/books/slice';
@@ -61,6 +64,12 @@ const NewReservationForm = () => {
     <section className="reserv-root">
       <Nav />
       <div id="reservation-page">
+        <motion.div variants={sliderContainer}>
+          <Frame1 variants={slider} />
+          <Frame2 variants={slider} />
+          <Frame3 variants={slider} />
+          <Frame4 variants={slider} />
+        </motion.div>
         <h1>BOOK A BOOK FROM OUR LIBRARY</h1>
         <form className="reserve-form">
           <label htmlFor="selectbook">
@@ -120,5 +129,27 @@ const NewReservationForm = () => {
     </section>
   );
 };
+
+const Frame1 = styled(motion.div)`
+  position: fixed;
+  left: 0;
+  top: 0%;
+  width: 100%;
+  heoght: 100vh;
+  background: #fffebf;
+  z-index: 2;
+`;
+
+const Frame2 = styled(Frame1)`
+  background: #ff8efb;
+`;
+
+const Frame3 = styled(Frame1)`
+  background: #8ed2ff;
+`;
+
+const Frame4 = styled(Frame1)`
+  background: #8effa0;
+`;
 
 export default NewReservationForm;

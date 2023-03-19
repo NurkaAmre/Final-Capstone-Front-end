@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {motion} from 'framer-motion';
+import { pageAnimation } from '../animation';
 import { baseURL } from '../../helpers/api';
 import Modal from '../addBook/reusable/modal/Modal';
 import isUserSigned from '../../helpers/auth';
 import Nav from '../navbar/nav';
 import './RemoveBook.css';
+
 
 const RemoveBook = () => {
   const [showModal, setShowModal] = useState({
@@ -59,7 +62,12 @@ const RemoveBook = () => {
   };
 
   return (
-    <section className="delete-root">
+    <motion.section 
+    variants={pageAnimation} 
+    initial="hidden" 
+    animate="show"
+    exit="exit"
+    className="delete-root">
       <Nav />
       <div className="deleteBookContainer flex flex-column center">
         <h2 className="detete-header hero">Delete Book</h2>
@@ -93,7 +101,7 @@ const RemoveBook = () => {
         />
 
       )}
-    </section>
+    </motion.section>
   );
 };
 
