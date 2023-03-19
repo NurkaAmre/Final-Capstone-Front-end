@@ -12,18 +12,20 @@
 
 .green {
   background: #88e62a;
-  color: #fff;
-  width: 100px;
-  height: 100px;
+  color: #f5f3f3;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  font-size: 1.5rem;
-  padding-top: 30%;
-  margin-top: 50%;
+  font-size: 3rem;
+}
+
+.fa {
+  margin-top: 15%;
 }
 
 .sidebar-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin: 20px 0;
 }
 
 .sidebar-header img {
@@ -45,12 +47,13 @@
 .sidebar-content li {
   list-style: none;
   padding: 10px;
+  font-size: 1.3rem;
   margin-bottom: 10px;
 }
 
 .sidebar-content li:hover {
   color: #fff;
-  background-color: #88e62a;
+  background-color: #7ef00c9d;
 }
 
 .sidebar-content a {
@@ -76,11 +79,13 @@
 .signout-buttn {
   background-color: #88e62a;
   border: none;
-  border-radius: 0 20px 20px 0;
+  border-radius: 15px;
   color: #fff;
-  position: absolute;
-  right: 90px;
   padding: 5px 30px;
+}
+
+.signout-buttn:hover {
+  background-color: #7ef00c9d;
 }
 
 .relative {

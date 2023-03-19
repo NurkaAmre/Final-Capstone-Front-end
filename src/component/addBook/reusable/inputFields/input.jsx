@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import './FileUpload.css';
+import s from './FileUpload.module.css';
 
 const Input = ({
   label, type, value, onChange,
 }) => (
-  <div className="input">
+  <div className={s.input}>
     <label
       htmlFor={label}
     >

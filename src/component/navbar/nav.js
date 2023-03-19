@@ -2,12 +2,13 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { RiPinterestFill } from 'react-icons/ri';
 import {
-  FaTwitter, FaFacebook, FaInstagram, FaGoogle,
+  FaTwitter, FaFacebook, FaInstagram, FaGoogle, FaBookOpen,
 } from 'react-icons/fa';
 import isUserSigned from '../../helpers/auth';
 import './nav.css';
+import Wave from '../wave';
 
-const Navigation = () => {
+const Nav = () => {
   const navigate = useNavigate();
   const signOut = () => {
     localStorage.removeItem('user');
@@ -16,17 +17,13 @@ const Navigation = () => {
 
   return (
     <div className="sidebar">
-      {isUserSigned() && (
-        <div className="relative">
-          <button type="button" className="signout-buttn" onClick={signOut}>
-            Sign out
-          </button>
-        </div>
-      )}
       <div className="sidebar-header">
-        <h1 className="green">BigBam</h1>
+        <h1 className="green">
+          <FaBookOpen className="fa" />
+        </h1>
       </div>
       <div className="sidebar-content">
+        <Wave />
         <Link to="/">
           <li>Books</li>
         </Link>
@@ -44,6 +41,14 @@ const Navigation = () => {
         </Link>
       </div>
 
+      {isUserSigned() && (
+        <div className="relative">
+          <button type="button" className="signout-buttn" onClick={signOut}>
+            Sign out
+          </button>
+        </div>
+      )}
+
       <div className="social-icons">
         <FaTwitter />
 
@@ -56,10 +61,10 @@ const Navigation = () => {
         <RiPinterestFill />
       </div>
       <span id="copyright">
-        <i>&copy; Joseph, Tanusri, Nurka & Ova</i>
+        <i>&copy; Joseph, Tanusri & Nurka</i>
       </span>
     </div>
   );
 };
 
-export default Navigation;
+export default Nav;

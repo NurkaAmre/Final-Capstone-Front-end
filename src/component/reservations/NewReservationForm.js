@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
+import { slider, sliderContainer } from '../animation';
 import { createReservationAPI } from '../../helpers/api';
 import isUserSigned from '../../helpers/auth';
 import { getBooksThunk } from '../../redux/books/slice';
+import Nav from '../navbar/nav';
 
 const NewReservationForm = () => {
   // eslint-disable-next-line react/prop-types, no-unused-vars
@@ -57,48 +61,95 @@ const NewReservationForm = () => {
     setReservation({ ...reservation, [name]: value });
   };
   return (
-    <div id="reservation-page">
-      <h1>BOOK A BOOK FROM OUR LIBRARY</h1>
-      <form>
-        <select name="book_id" value={bookId} onChange={handleFieldChange}>
-          {books
-            && books.map((book) => (
-              <option key={book.id} value={book.id}>
-                {book.title}
-              </option>
-            ))}
-        </select>
-        <input
-          type="date"
-          name="date_of_booking"
-          placeholder="date"
-          value={reservation.date_of_booking}
-          onChange={handleFieldChange}
-        />
-        <input
-          type="date"
-          name="date_of_delivery"
-          placeholder="date"
-          value={reservation.date_of_delivery}
-          onChange={handleFieldChange}
-        />
-        <input
-          type="text"
-          name="city"
-          placeholder="city"
-          value={reservation.city}
-          onChange={handleFieldChange}
-        />
-        <input
-          className="buttn"
-          type="submit"
-          value="Order Now"
-          onClick={handleSubmit}
-        />
-      </form>
-      <span className={msg.type}>{msg.text}</span>
-    </div>
+    <section className="reserv-root">
+      <Nav />
+      <div id="reservation-page">
+        <motion.div variants={sliderContainer}>
+          <Frame1 variants={slider} />
+          <Frame2 variants={slider} />
+          <Frame3 variants={slider} />
+          <Frame4 variants={slider} />
+        </motion.div>
+        <h1>BOOK A BOOK FROM OUR LIBRARY</h1>
+        <form className="reserve-form">
+          <label htmlFor="selectbook">
+            Select your book:
+            <select
+              name="book_id"
+              className="select-option"
+              value={bookId}
+              onChange={handleFieldChange}
+            >
+              {books
+                && books.map((book) => (
+                  <option key={book.id} value={book.id}>
+                    {book.title}
+                  </option>
+                ))}
+            </select>
+          </label>
+          <label htmlFor="datebook">
+            Date of Booking:
+            <input
+              type="date"
+              name="date_of_booking"
+              placeholder="date"
+              value={reservation.date_of_booking}
+              onChange={handleFieldChange}
+            />
+          </label>
+          <label htmlFor="datedelivery">
+            Date of delivery:
+            <input
+              type="date"
+              name="date_of_delivery"
+              placeholder="date"
+              value={reservation.date_of_delivery}
+              onChange={handleFieldChange}
+            />
+          </label>
+          <label htmlFor="city">
+            Enter your city:
+            <input
+              type="text"
+              name="city"
+              value={reservation.city}
+              onChange={handleFieldChange}
+            />
+          </label>
+          <input
+            className="buttn"
+            type="submit"
+            value="Order Now"
+            onClick={handleSubmit}
+          />
+        </form>
+        <span className={msg.type}>{msg.text}</span>
+      </div>
+    </section>
   );
 };
+
+const Frame1 = styled(motion.div)`
+  position: fixed;
+  left: 0;
+  top: 0%;
+  width: 100%;
+  heoght: 100vh;
+  background: #fffebf;
+  z-index: 2;
+`;
+
+const Frame2 = styled(Frame1)`
+  background: #ff8efb;
+`;
+
+const Frame3 = styled(Frame1)`
+  background: #8ed2ff;
+`;
+
+const Frame4 = styled(Frame1)`
+  background: #8effa0;
+`;
 
 export default NewReservationForm;

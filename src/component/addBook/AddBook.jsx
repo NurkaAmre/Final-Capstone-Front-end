@@ -7,6 +7,7 @@ import Container from './reusable/container/Container';
 import FileUpload from './reusable/inputFields/FileUpload';
 import Input from './reusable/inputFields/input';
 import isUserSigned from '../../helpers/auth';
+import Nav from '../navbar/nav';
 
 const AddBook = () => {
   const [title, handleTitleChange] = InputChange('');
@@ -64,86 +65,112 @@ const AddBook = () => {
   };
 
   return (
-    <Container>
-      <div className="form-container">
-        <span className="flex flex-column center hero margin">
-          <h1>Add New Book</h1>
-        </span>
-        <form onSubmit={handleSubmit} className="flex flex-column">
-          <Input
-            label="Book Title"
-            type="text"
-            value={title}
-            onChange={(input) => handleTitleChange(input)}
-          />
+    <section className="add-book-root">
+      <Nav />
+      <Container>
 
-          <Input
-            label="Book Author"
-            type="text"
-            value={author}
-            onChange={(input) => handleAuthorChange(input)}
-          />
+        <div className="form-container">
+          <span className="flex flex-column center hero margin">
+            <h1>Add New Book</h1>
+          </span>
+          <form onSubmit={handleSubmit} className="flex flex-column add-form">
+            <label>
+              Book title:
+              <Input
+                type="text"
+                value={title}
+                onChange={(input) => handleTitleChange(input)}
+              />
+            </label>
 
-          <Input
-            label="Book genre"
-            type="text"
-            value={genre}
-            onChange={(input) => handleGenreChange(input)}
-          />
+            <label >
+              Book Author:
+              <Input
+                type="text"
+                value={author}
+                onChange={(input) => handleAuthorChange(input)}
+              />
+            </label>
 
-          <Input
-            label="Book Isbn"
-            type="text"
-            value={isbn}
-            onChange={(input) => handleIsbnChange(input)}
-          />
+            <label>
+              Book genre:
+              <Input
+                type="text"
+                value={genre}
+                onChange={(input) => handleGenreChange(input)}
+              />
+            </label>
 
-          <Input
-            label="Book Price"
-            type="text"
-            value={price}
-            onChange={(input) => handlePriceChange(input)}
-          />
+            <label>
+              Book ISBN:
+              <Input
+                type="text"
+                value={isbn}
+                onChange={(input) => handleIsbnChange(input)}
+              />
+            </label>
 
-          <Input
-            label="Book pages"
-            type="text"
-            value={pages}
-            onChange={(input) => handlePagesChange(input)}
-          />
+            <label>
+              Book Price:
+              <Input
+                type="text"
+                value={price}
+                onChange={(input) => handlePriceChange(input)}
+              />
+            </label>
 
-          <Input
-            label="Book Publisher"
-            type="text"
-            value={publisher}
-            onChange={(input) => handlePublisherChange(input)}
-          />
+            <label>
+              Book pages:
+              <Input
+                type="text"
+                value={pages}
+                onChange={(input) => handlePagesChange(input)}
+              />
+            </label>
 
-          <Input
-            label="Book Language"
-            type="text"
-            value={language}
-            onChange={(input) => handleLanguageChange(input)}
-          />
+            <label>
+              Book Publisher:
+              <Input
+                type="text"
+                value={publisher}
+                onChange={(input) => handlePublisherChange(input)}
+              />
+            </label>
 
-          <Input
-            label="Book Date_of_publication"
-            type="date"
-            value={date}
-            onChange={(input) => handleDateChange(input)}
-          />
+            <label>
+              Language:
+              <Input
+                type="text"
+                value={language}
+                onChange={(input) => handleLanguageChange(input)}
+              />
+            </label>
 
-          <FileUpload
-            type="upload"
-            file={file}
-            preview={preview}
-            handleFileChange={(input) => handleFileChange(input)}
-          />
+            <label>
+              Published Date:
+              <Input
+                type="date"
+                value={date}
+                onChange={(input) => handleDateChange(input)}
+              />
+            </label>
 
-          <button type="submit" className="addbtn">Add Book</button>
-        </form>
-      </div>
-    </Container>
+            <div className="file-upload">
+              <FileUpload
+                type="upload"
+                className="file-input"
+                file={file}
+                preview={preview}
+                handleFileChange={(input) => handleFileChange(input)}
+              />
+            </div>
+
+            <button type="submit" className="addbtn">Add Book</button>
+          </form>
+        </div>
+      </Container>
+    </section>
+
   );
 };
 

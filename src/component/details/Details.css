@@ -2,6 +2,12 @@ body {
   box-sizing: border-box;
 }
 
+.root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
 .card {
   display: flex;
   flex-direction: row;
@@ -9,12 +15,15 @@ body {
 
 .books-image {
   width: 50%;
+  height: 60%;
+  gap: 5%;
 }
 
 .books-image img {
   width: 70%;
-  margin-top: 20%;
-  margin-left: 20%;
+  margin-top: 30%;
+  margin-left: 30%;
+  border-radius: 15px;
 }
 
 .book-props {
@@ -26,6 +35,7 @@ body {
   padding-left: 1rem;
   margin-top: 15%;
   margin-bottom: 15%;
+  margin-left: 5%;
 }
 
 .book-props > :nth-child(even) {
@@ -36,8 +46,12 @@ body {
   text-align: right;
 }
 
+.books-name h3 {
+  padding: 1rem;
+}
+
 .text {
-  padding-top: 1rem;
+  padding: 1rem;
 }
 
 .books-description {
@@ -51,16 +65,6 @@ body {
   font-size: 1rem;
 }
 
-.btn1 {
-  border-radius: 0 20px 20px 0;
-  padding: 10px 30px;
-  margin-top: 45%;
-  padding-left: 0;
-  background-color: #88e62a;
-  border: none;
-  color: #fff;
-}
-
 .btn {
   border-radius: 20px 20px 20px 20px;
   margin-top: 30%;
@@ -70,17 +74,38 @@ body {
   padding: 0.5rem;
 }
 
+.btn:hover {
+  background-color: #88e62ab5;
+  border-radius: 20px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.btn1 {
+  border-radius: 0 20px 20px 0;
+  padding: 10px 30px;
+  margin-top: 26%;
+  padding-left: 0;
+  background-color: #88e62a;
+  border: none;
+  color: #fff;
+}
+
 @media only screen and (max-width: 768px) {
   .card {
     display: flex;
     flex-direction: column;
+    padding-top: 50%;
+  }
+
+  .books-image {
+    width: 75%;
+    height: 80%;
   }
 
   .books-image img {
-    width: 200px;
-    height: 280px;
-    padding: 0;
-    margin: 0;
+    width: 100%;
+    padding-left: 1px;
   }
 
   .btn1 {

@@ -8,7 +8,6 @@ import { baseURL } from '../helpers/api';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-
   const dispatch = useDispatch();
 
   const handleChangeUsername = (event) => {
@@ -50,23 +49,40 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Log in</h1>
-      <label htmlFor="username">
-        <p>Name:</p>
-        <input type="text" id="username" value={username} onChange={handleChangeUsername} />
-      </label>
-      <br />
-      <label htmlFor="Email">
-        <p>Email:</p>
-        <input type="email" id="Email" value={email} onChange={handleChangeEmail} />
-      </label>
-      <br />
-      <button type="submit" className="submit-btn">Login</button>
-      <br />
-      <span><i>Don&apos;t have an account?</i></span>
-      <Link to="/signup">Sign up here</Link>
-    </form>
+    <section className="hero-log">
+      <form onSubmit={handleSubmit} className="hero-form">
+        <h1>Log in</h1>
+        <label htmlFor="username">
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your name"
+            value={username}
+            onChange={handleChangeUsername}
+          />
+        </label>
+        <br />
+        <label htmlFor="Email">
+          <input
+            type="email"
+            id="Email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={handleChangeEmail}
+          />
+        </label>
+        <br />
+        <button type="submit" className="submit-btn">
+          Login
+        </button>
+        <br />
+        <span>
+          <i>Don&apos;t have an account?</i>
+        </span>
+        <Link to="/signup">Sign up here</Link>
+      </form>
+      <div className="hero-images" />
+    </section>
   );
 };
 
