@@ -1,0 +1,143 @@
+body {
+  box-sizing: border-box;
+}
+
+.root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+}
+
+.books-image {
+  width: 50%;
+  height: 60%;
+  gap: 5%;
+}
+
+.books-image img {
+  width: 70%;
+  margin-top: 30%;
+  margin-left: 30%;
+  border-radius: 15px;
+}
+
+.book-props {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1rem;
+  width: 20%;
+  padding-left: 1rem;
+  margin-top: 15%;
+  margin-bottom: 15%;
+  margin-left: 5%;
+}
+
+.book-props > :nth-child(even) {
+  background-color: rgb(235, 229, 229);
+}
+
+.books-name {
+  text-align: right;
+}
+
+.books-name h3 {
+  padding: 1rem;
+}
+
+.text {
+  padding: 1rem;
+}
+
+.books-description {
+  font-size: 1.5rem;
+  text-align: justify;
+}
+
+.reserve {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 1rem;
+}
+
+.btn {
+  border-radius: 20px 20px 20px 20px;
+  margin-top: 30%;
+  background-color: #88e62a;
+  border: none;
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.btn:hover {
+  background-color: #88e62ab5;
+  border-radius: 20px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.btn1 {
+  border-radius: 0 20px 20px 0;
+  padding: 10px 30px;
+  margin-top: 26%;
+  padding-left: 0;
+  background-color: #88e62a;
+  border: none;
+  color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50%;
+  }
+
+  .books-image {
+    width: 75%;
+    height: 80%;
+  }
+
+  .books-image img {
+    width: 100%;
+    padding-left: 1px;
+  }
+
+  .btn1 {
+    display: none;
+  }
+
+  .btn {
+    border-radius: 20px 20px 20px 20px;
+    margin-top: 3rem;
+    background-color: #88e62a;
+    border: none;
+    color: #fff;
+    width: 150px;
+  }
+
+  .book-props {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1rem;
+    width: 80%;
+    margin-left: 15%;
+    margin-top: 15%;
+    margin-bottom: 15%;
+  }
+
+  .books-description {
+    font-size: 2rem;
+    text-align: justify;
+  }
+
+  .book-props > :nth-child(even) {
+    background-color: rgb(177, 175, 175);
+  }
+}

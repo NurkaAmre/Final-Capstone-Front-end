@@ -1,0 +1,94 @@
+.sidebar {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  padding-bottom: 100px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.green {
+  background: #88e62a;
+  color: #f5f3f3;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  font-size: 3rem;
+}
+
+.fa {
+  margin-top: 15%;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.sidebar-header img {
+  display: block;
+  margin: 0 auto;
+}
+
+.sidebar-content {
+  font-size: 0.9rem;
+  align-self: stretch;
+}
+
+.book-link {
+  color: #fff;
+  background-color: #88e62a;
+  padding: 10px;
+}
+
+.sidebar-content li {
+  list-style: none;
+  padding: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.sidebar-content li:hover {
+  color: #fff;
+  background-color: #7ef00c9d;
+}
+
+.sidebar-content a {
+  color: #333;
+  text-decoration: none;
+}
+
+.social-icons {
+  position: absolute;
+  bottom: 55px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+#copyright {
+  position: absolute;
+  bottom: 5px;
+  font-size: 0.8rem;
+  padding: 8px;
+}
+
+.signout-buttn {
+  background-color: #88e62a;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  padding: 5px 30px;
+}
+
+.signout-buttn:hover {
+  background-color: #7ef00c9d;
+}
+
+.relative {
+  position: relative;
+  padding: 1rem;
+}

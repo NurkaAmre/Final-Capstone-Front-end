@@ -1,0 +1,145 @@
+/* stylelint-disable no-descending-specificity */
+
+body {
+  box-sizing: border-box;
+}
+
+.root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.app-title {
+  margin-top: 50px;
+  text-align: center;
+  font-weight: 900;
+}
+
+.app-msg {
+  font-style: italic;
+  text-align: center;
+}
+
+.books-container {
+  padding: 20px;
+}
+
+.carousel-item .d-flex {
+  gap: 15px;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  text-align: end;
+}
+
+.d-flex > div {
+  width: 100%;
+}
+
+.carousel-item .d-flex a {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  opacity: 1;
+  background: #b4e110cf;
+  position: absolute;
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.carousel-control-next {
+  border-radius: 60% 0 0 60%;
+}
+
+.carousel-control-prev {
+  border-radius: 0 60% 60% 0;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  border: 2px solid #fff;
+  background-color: var(--main-color);
+  width: 70px;
+  position: absolute;
+}
+
+.carousel-control-prev-icon {
+  border-top-right-radius: 45px;
+  border-bottom-right-radius: 45px;
+  left: 0;
+}
+
+.carousel-control-next-icon {
+  border-top-left-radius: 45px;
+  border-bottom-left-radius: 45px;
+  right: 0;
+}
+
+.carousel-inner img {
+  border-radius: 15px;
+  width: 100% !important;
+  max-width: 300px;
+  margin-top: 10%;
+}
+
+.carousel-inner img:hover {
+  background-color: rgba(70, 113, 177, 0.633);
+  width: 100%;
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-info h4 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2rem;
+}
+
+.link-us {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 20px;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.icon {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  padding: 4px;
+  border-radius: 50%;
+  background: none;
+  border: 2px solid #ddd;
+  color: #ddd;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    margin-top: 40%;
+  }
+}

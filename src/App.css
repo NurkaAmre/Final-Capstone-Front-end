@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+
+/* stylelint-disable no-descending-specificity */
+:root {
+  --light: #fff;
+  --dark: #000;
+  --form-background: #f8f8f8;
+  --grey: #ccc;
+  --transparent: transparent;
+  --primary: rgb(51, 58, 153);
+  --hero: #103f52be;
+  --light-dark: #3a3a3a96;
+  --main-color: #96bf01;
+  --main-font: 'Segoe UI', tahome, geneva, verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Indie Flower', cursive;
+}
+
+/* #root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 40% 60%;
+} */
+
+a {
+  text-decoration: none;
+  color: var(--light-dark);
+}
+
+select,
+input:not([type="file"]) {
+  border-radius: 10px;
+  border: 1px solid var(--grey);
+  padding: 8px 1rem;
+  margin: 8px 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+.buttn {
+  margin: 20px 0;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  color: var(--main-color);
+  background-color: #fff;
+}
+
+.msg-sucss {
+  font-size: 1rem;
+  color: green;
+  font-weight: 600;
+}
+
+.msg-fail {
+  font-size: 0.9rem;
+  color: rgb(223, 127, 127);
+  font-weight: 600;
+}
+
+.reserv-root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+#reservation-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #c4f60db6;
+  padding-top: 10%;
+  background-image: url(./img/cate3.png);
+  background-repeat: no-repeat;
+  background-size: 200px 300px;
+  background-position: 100px 300px;
+}
+
+.reservation-root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+#reservation-page h1 {
+  margin-bottom: 5%;
+  color: rgb(25, 182, 174);
+}
+
+/* #reservation-page form input {
+  border: 1px solid #acacac;
+} */
+
+#reservation-page form input[type="text"],
+#reservation-page form input[type="number"],
+#reservation-page form input[type="date"],
+#reservation-page form select {
+  min-width: 200px;
+  margin: 8px 0;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: none;
+  color: lightskyblue;
+  border-bottom: 2px solid #3de11c;
+  outline: none;
+  line-height: 2rem;
+  font-size: 1.2rem;
+}
+
+#reservation_page {
+  min-height: 100vh;
+  padding: 25px 0;
+  font-family: var(--main-font);
+  text-align: center;
+  background-color: #bae61b;
+}
+
+#reservation_page h1 {
+  margin: 45px 0;
+  color: lightseagreen;
+}
+
+#reserved_books {
+  display: grid;
+  justify-items: center;
+}
+
+div.book-card {
+  min-width: 240px;
+  margin: 10px 0;
+  padding: 15px 15px;
+  padding-bottom: 35px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  gap: 10px;
+  position: relative;
+  white-space: nowrap;
+  background-color: #f5f5f5;
+  color: #2c2c2c;
+  box-shadow: 1px 1px 10px #c0c0c0;
+}
+
+div.book-card h2 {
+  font-size: 1.2rem;
+  color: lightcoral;
+}
+
+div.book-card .myicon {
+  width: 20px;
+}
+
+div.book-card .book-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: absolute;
+  bottom: 5px;
+  left: 25px;
+}
+
+.reserve-form label {
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+  color: lightseagreen;
+}
+
+div.book-card .book-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: lightseagreen;
+}
+
+.add-book-root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.form-container {
+  background: #fff;
+  backdrop-filter: blur(3rem);
+  filter: drop-shadow(0 0 10px rgba(121, 240, 51, 0.958));
+  padding: 1.5rem 5rem;
+  border-radius: 15px;
+  color: lightcoral;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.form-container span h1 {
+  color: rgb(106, 102, 102);
+}
+
+.add-form label {
+  display: flex;
+  flex-direction: row;
+  color: lightseagreen;
+  gap: 15%;
+  width: 400px;
+}
+
+.add-form label input {
+  border: none;
+  outline: none;
+  line-height: 2rem;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #3de11c;
+  border-right: 2px solid #3de11c;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.addbtn {
+  border: none;
+  cursor: pointer;
+  background: #96bf01;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-family: inherit;
+  margin-top: 1.5rem;
+}
+
+.file-upload {
+  background: rgba(141, 196, 185, 0.484);
+  border-radius: 20px;
+  width: 80%;
+}
+
+img {
+  width: 200px;
+  height: 300px;
+}
+
+.margin {
+  margin-bottom: 8px;
+}
+
+.hero {
+  color: var(--hero);
+}
+
+.input-div {
+  width: 100%;
+}
+
+.gap {
+  gap: 5rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.detete-header {
+  padding-top: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  #reserved_books {
+    grid-template-columns: 50% 50%;
+  }
+
+  #root {
+    grid-template-columns: 30% 70%;
+  }
+
+  .social-icons {
+    justify-content: space-between;
+  }
+
+  .reserve-form label {
+    width: 100px;
+  }
+
+  #reservation-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #c4f60db6;
+    padding-top: 50%;
+    background-image: url(./img/cate3.png);
+    background-repeat: no-repeat;
+    background-size: 100px 200px;
+    background-position: 10px 300px;
+  }
+
+  .add-form label {
+    width: 150px;
+  }
+
+  .form-container {
+    width: 80%;
+  }
+
+  .file-input {
+    width: 150px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #reserved_books {
+    grid-template-columns: 33% 33% 33%;
+  }
+
+  #root {
+    grid-template-columns: 20% 80%;
+  }
+
+  div.book-card {
+    min-width: 300px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .form-container {
+    padding: 1.5rem 10px;
+  }
+
+  .gap {
+    gap: 10px;
+  }
+
+  img {
+    width: 80%;
+    height: 200px;
+  }
+
+  #reserved_books {
+    margin-left: 5%;
+    margin-right: 10%;
+  }
+}
